@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-
+        // mao ni admin
         User::firstOrCreate([
             'first_name' => 'Developer',
             'last_name' => 'Account',
