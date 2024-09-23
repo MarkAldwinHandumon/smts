@@ -26,6 +26,7 @@ class User extends Authenticatable
         'last_name',
         'type',
         'email',
+        'phone',
         'password',
     ];
 
@@ -51,7 +52,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
+    public function student(): BelongsTo
+    {
+        return $this->belongsTo(Student::class,'id', 'user_id'); // Adjust 'course_id' to your foreign key
+    }
+    
     public function studentDetails(): HasOne
     {
         return $this->hasOne(Teacher::class);
@@ -68,7 +73,11 @@ class User extends Authenticatable
         return $this->belongsTo(Courses::class, 'subject'); // Adjust 'course_id' to your foreign key
     }
 
-    
+    public function form(): BelongsTo
+    {
+        return $this->belongsTo(Student::class, 'id', 'user_id'); // Adjust 'course_id' to your foreign key
+    }
+
     public function address(): MorphOne
     {
         return $this->morphOne(Address::class, 'addressable');

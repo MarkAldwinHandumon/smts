@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('has_access')->default(true);
             $table->boolean('is_active')->default(true);
             $table->string('email')->unique();
+            $table->string('phone')->nullable()->default(null);
             $table->string('password');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

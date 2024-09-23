@@ -4,11 +4,11 @@
             <div class="row align-items-center">
                 <div class="col-md-12">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">Student's Information</h5>
+                        <h5 class="m-b-10">Guest's Information</h5>
                     </div>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i></a></li>
-                        <li class="breadcrumb-item"><a href="#!">Student's List</a></li>
+                        <li class="breadcrumb-item"><a href="#!">Guest's List</a></li>
                     </ul>
                 </div>
             </div>
@@ -20,20 +20,19 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Student List</h5>
+                    <h5>Guest List</h5>
                 </div>
                 <div class="card-body table-border-style">
                     <div class="table-responsive">
                         <table class="table table-hover" id="data-table">
                             <thead>
                                 <tr>
-                                <th>#</th>
+                                    <th>#</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>phone</th>
-                                    <th>Scholar Type</th>
-                                    <th>Course</th>
                                     <th>Date Joined</th>
+                                    <th>Form Submitted</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -41,12 +40,13 @@
                                 @foreach($users as $user)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ ucwords($user->user->first_name) }}</td>
-                                    <td>{{ $user->user->email }}</td>
-                                    <td>{{ $user->user->phone }}</td>
-                                    <td>{{ $user->user->type_scholar }}</td>
-                                    <td>{{ $user->subject->title }}</td>
+                                    <td>{{ ucwords($user->first_name) }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->phone }}</td>
                                     <td>{{ @date('m/d/Y g:i A', strtotime($user->created_at)) }}</td>
+                                    <td>
+                                        {{ !empty($user->form->created_at) ? date('m/d/Y g:i A', strtotime($user->form->created_at)) : 'Not yet' }}
+                                    </td>
                                     <td>
                                     <a class="profile-action text-info" href="{{ route('guest.profile', ['id' => $user->id]) }}" title="Profile">
                                         <i class="feather icon-user"></i> 
@@ -82,7 +82,7 @@
 
 </x-app-layout>
 <script>
-    const appUrl = document.querySelector('meta[name="app-url"]').getAttribute('content');
+          const appUrl = document.querySelector('meta[name="app-url"]').getAttribute('content');
     $(document).ready(function() {
         $('#data-table').DataTable({
             // Optional configurations can be added here
@@ -107,7 +107,7 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + '/student/delete', // Ensure 'appUrl' is defined and valid
+                        url: appUrl + '/guest/delete', // Ensure 'appUrl' is defined and valid
                         headers: {
                             'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
                         },
@@ -118,7 +118,7 @@
                         // Successful deletion
                         Swal.fire(
                             'Deleted!',
-                            'The item has been deleted.',
+                            'The User has been deleted.',
                             'success'
                         ).then(() => {
                             // Optionally, remove the row from the table
@@ -128,7 +128,7 @@
                         // Handle error
                         Swal.fire(
                             'Error!',
-                            'There was an error deleting the item.',
+                            'There was an error deleting the user.',
                             'error'
                         );
                         console.error('Error:', error);
@@ -136,13 +136,13 @@
                 } else {
                     Swal.fire(
                         'Cancelled',
-                        'The item was not deleted.',
+                        'The user was not deleted.',
                         'info'
                     );
                 }
             });
+            
         });
-
 
     }); 
 </script>

@@ -4,11 +4,11 @@
             <div class="row align-items-center">
                 <div class="col-md-12">
                     <div class="page-header-title">
-                        <h5 class="m-b-10">Student's Information</h5>
+                        <h5 class="m-b-10">Guest's Information</h5>
                     </div>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="feather icon-home"></i></a></li>
-                        <li class="breadcrumb-item"><a href="#!">Student's List</a></li>
+                        <li class="breadcrumb-item"><a href="#!">Guest's List</a></li>
                     </ul>
                 </div>
             </div>
@@ -20,40 +20,39 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Student List</h5>
+                    <h5>Guest List</h5>
                 </div>
                 <div class="card-body table-border-style">
                     <div class="table-responsive">
                         <table class="table table-hover" id="data-table">
                             <thead>
                                 <tr>
-                                <th>#</th>
+                                    <th>#</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>phone</th>
                                     <th>Scholar Type</th>
                                     <th>Course</th>
                                     <th>Date Joined</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($users as $user)
+                                @foreach($students as $student)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ ucwords($user->user->first_name) }}</td>
-                                    <td>{{ $user->user->email }}</td>
-                                    <td>{{ $user->user->phone }}</td>
-                                    <td>{{ $user->user->type_scholar }}</td>
-                                    <td>{{ $user->subject->title }}</td>
-                                    <td>{{ @date('m/d/Y g:i A', strtotime($user->created_at)) }}</td>
+                                    <td>{{ ucwords($student->user->first_name) }}</td>
+                                    <td>{{ $student->user->email }}</td>
+                                    <td>{{ $student->user->phone }}</td>
+                                    <td>{{ $student->user->type_scholar }}</td>
+                                    <td>{{ $student->subject->title }}</td>
+                                    <td>{{ @date('m/d/Y g:i A', strtotime($student->created_at)) }}</td>
+                                    <td>{{ $student->course_status }}</td>
                                     <td>
-                                    <a class="profile-action text-info" href="{{ route('guest.profile', ['id' => $user->id]) }}" title="Profile">
-                                        <i class="feather icon-user"></i> 
-                                    </a>
-
-                                        <a class="delete-action text-danger" data-id="{{ $user->id }}" href="javascript:void(0)"  title="Delete">
-                                            <i class="feather icon-trash"></i> 
+                                        <a class="profile-action text-info" href="javascript:void(0)" onclick="pdf_form({{ $student->id }})" title="Profile">
+                                            <i class="feather icon-printer"></i> 
+                                            print
                                         </a>
                                     </td>
                                 </tr>
@@ -145,4 +144,9 @@
 
 
     }); 
+
+    function pdf_form(id)
+    {   
+        var win = window.open(appUrl + "/print/pdfrequest/" + id, '_blank');
+    }
 </script>

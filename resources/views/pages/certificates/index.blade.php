@@ -38,26 +38,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($users as $user)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ ucwords($user->user->first_name) }}</td>
-                                    <td>{{ $user->user->email }}</td>
-                                    <td>{{ $user->user->phone }}</td>
-                                    <td>{{ $user->user->type_scholar }}</td>
-                                    <td>{{ $user->subject->title }}</td>
-                                    <td>{{ @date('m/d/Y g:i A', strtotime($user->created_at)) }}</td>
-                                    <td>
-                                    <a class="profile-action text-info" href="{{ route('guest.profile', ['id' => $user->id]) }}" title="Profile">
-                                        <i class="feather icon-user"></i> 
-                                    </a>
-
-                                        <a class="delete-action text-danger" data-id="{{ $user->id }}" href="javascript:void(0)"  title="Delete">
-                                            <i class="feather icon-trash"></i> 
-                                        </a>
-                                    </td>
-                                </tr>
-                                @endforeach
                             </tbody>
                         </table>
                     </div>

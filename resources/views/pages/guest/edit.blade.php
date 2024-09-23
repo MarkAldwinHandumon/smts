@@ -96,8 +96,9 @@
 </style>
 <div id="error-messages"></div>
 <div id="success-message" style="display: none"></div>
-<form method="POST" action="{{ route('student.create') }}" class="needs-validation" novalidate enctype="multipart/form-data">
+<form id="guestForm" action="{{ route('student.update', $student->id) }}" method="POST">
     @csrf
+    @method('PUT')
     <div class="pcoded-content" style="padding-left: 10%;padding-right: 10%;">
     <div class="row">
         <!-- Logo Column -->
@@ -108,9 +109,7 @@
                 </center>
             </div>
         </div>
-        
-        <input type="hidden" name="course_id" value="{{ $id }}">
-        <input type="hidden" name="course_status" value="pending">
+
         <!-- Main Text Column -->
         <div class="col-12 col-md-10" style="border: solid 1px black;">
             <div class="text-center">
@@ -230,15 +229,15 @@
             <p style="font-weight:bold;font-size:large">2.1.	Name:</span>
             </div>
             <div class="col-3 p-1 ">
-            <input type="text" class="form-control" name="last_name" required style="border:solid 1px">
+            <input type="text" class="form-control" name="last_name" value="{{ $student->user->last_name }}" required style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">Last Name, Extension Name (e.g:Jr.)</label>
             </div>
             <div class="col-3 p-1">
-            <input type="text" class="form-control" name="first_name" style="border:solid 1px">
+            <input type="text" class="form-control" name="first_name" value="{{ $student->user->first_name }}" style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">First </label>
             </div>
             <div class="col-3 p-1">
-            <input type="text" class="form-control" name="middle_name" style="border:solid 1px">
+            <input type="text" class="form-control" name="middle_name" value="{{ $student->user->middle_name }}" style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">Middle</label>
             </div>
         </div>
@@ -250,15 +249,15 @@
             <p style="font-weight:bold;font-size:large">2.2. Complete <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Permanent Mailing <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address:</span>
             </div>
             <div class="col-3 p-1 ">
-            <input type="text" class="form-control" name="street" style="border:solid 1px">
+            <input type="text" class="form-control" name="street" value="{{ $address->street }}" style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">Number, Street</label>
             </div>
             <div class="col-3 p-1">
-            <input type="text" class="form-control" name="barangay" style="border:solid 1px">
+            <input type="text" class="form-control" name="barangay" value="{{ $address->barangay }}" style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">Barangay </label>
             </div>
             <div class="col-3 p-1">
-            <input type="text" class="form-control" name="district" style="border:solid 1px">
+            <input type="text" class="form-control" name="district" value="{{ $address->district }}" style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">District</label>
             </div>
         </div>
@@ -269,15 +268,15 @@
             <div class="col-3 p-1">
             </div>
             <div class="col-3 p-1 ">
-            <input type="text" class="form-control" name="city" style="border:solid 1px">
+            <input type="text" class="form-control" name="city" value="{{ $address->city }}" style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">City/Municipality</label>
             </div>
             <div class="col-3 p-1">
-            <input type="text" class="form-control" name="province" style="border:solid 1px">
+            <input type="text" class="form-control" name="province"  value="{{ $address->province }}"style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">Province </label>
             </div>
             <div class="col-3 p-1">
-            <input type="text" class="form-control" name="region" style="border:solid 1px">
+            <input type="text" class="form-control" name="region" value="{{ $address->region }}" style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">Region</label>
             </div>
         </div>
@@ -292,11 +291,11 @@
             <label class="d-flex justify-content-center align-items-center font-weight-bold">Email Address/Facebook Account:</label>
             </div>
             <div class="col-3 p-1">
-            <input type="text" class="form-control" name="phone" style="border:solid 1px">
+            <input type="text" class="form-control" name="phone"  value="{{ $student->user->phone }}" style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">Contact No: </label>
             </div>
             <div class="col-3 p-1">
-            <input type="text" class="form-control" name="nationality" style="border:solid 1px">
+            <input type="text" class="form-control" name="nationality"  value="{{ $student->nationality }}" style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">Nationality</label>
             </div>
         </div>
@@ -311,13 +310,26 @@
             <div class="col-3 pl-4" style="border-right: solid 1px black;">
                 <p style="font-weight:bold;font-size:large">3.1. Sex:</span>
 
+                
                 <div class="form-check pl-5">
-                    <input class="form-check-input" type="checkbox" id="male" name="sex" value="male" onclick="toggleCheckbox1('male', 'female')">
+                    <input class="form-check-input" 
+                        type="checkbox" 
+                        id="male" 
+                        name="sex" 
+                        value="male" 
+                        onclick="toggleCheckbox1('male', 'female')" 
+                        {{ $student->sex == 'male' ? 'checked' : '' }}>
                     <label class="form-check-label" for="male">Male</label>
                 </div>
 
                 <div class="form-check pl-5">
-                    <input class="form-check-input" type="checkbox" id="female" name="sex" value="female"  onclick="toggleCheckbox1('female', 'male')">
+                    <input class="form-check-input" 
+                        type="checkbox" 
+                        id="female" 
+                        name="sex" 
+                        value="female" 
+                        onclick="toggleCheckbox1('female', 'male')" 
+                        {{ $student->sex == 'female' ? 'checked' : '' }}>
                     <label class="form-check-label" for="female">Female</label>
                 </div>
 
@@ -327,22 +339,22 @@
                 <p style="font-weight:bold;font-size:large">3.2.  Civil Status</span>
 
                 <div class="form-check pl-5">
-                    <input class="form-check-input" name="status" type="checkbox" value="single" id="single" onclick="toggleCheckbox(this)">
+                    <input class="form-check-input" name="status" type="checkbox" value="single" id="single" onclick="toggleCheckbox(this)" {{ $student->status == 'single' ? 'checked' : '' }}>
                     <label class="form-check-label" for="single">Single</label>
                 </div>
 
                 <div class="form-check pl-5">
-                    <input class="form-check-input" name="status" type="checkbox" value="married" id="married" onclick="toggleCheckbox(this)">
+                    <input class="form-check-input" name="status" type="checkbox" value="married" id="married" onclick="toggleCheckbox(this)" {{ $student->status == 'married' ? 'checked' : '' }}>
                     <label class="form-check-label" for="married">Married</label>
                 </div>
 
                 <div class="form-check pl-5">
-                    <input class="form-check-input" name="status" type="checkbox" id="widower" value="widower" onclick="toggleCheckbox(this)">
+                    <input class="form-check-input" name="status" type="checkbox" id="widower" value="widower" onclick="toggleCheckbox(this)" {{ $student->status == 'widower' ? 'checked' : '' }}>
                     <label class="form-check-label" for="widower">Widower</label>
                 </div>
 
                 <div class="form-check pl-5">
-                    <input class="form-check-input" name="status" type="checkbox" id="separated" value="separated" onclick="toggleCheckbox(this)">
+                    <input class="form-check-input" name="status" type="checkbox" id="separated" value="separated" onclick="toggleCheckbox(this)" {{ $student->status == 'separated' ? 'checked' : '' }}>
                     <label class="form-check-label" for="separated">Separated</label>
                 </div>
 
@@ -352,12 +364,12 @@
                 <p style="font-weight:bold;font-size:large"> 3.3   Employment  Status (before the training)</span>
 
                 <div class="form-check  pl-5">
-                    <input class="form-check-input" name="employement_status" type="checkbox" id="employed" value="employed" onclick="toggleCheckbox1('employed', 'unemployed')">
+                    <input class="form-check-input" name="employement_status" type="checkbox" id="employed" value="employed" onclick="toggleCheckbox1('employed', 'unemployed')" {{ $student->employement_status == 'employed' ? 'checked' : '' }}>
                     <label class="form-check-label" for="employed">Employed</label>
                 </div>
 
                 <div class="form-check  pl-5">
-                    <input class="form-check-input" name="employement_status" type="checkbox" id="unemployed" value="unemployed" onclick="toggleCheckbox1('unemployed', 'employed')">
+                    <input class="form-check-input" name="employement_status" type="checkbox" id="unemployed" value="unemployed" onclick="toggleCheckbox1('unemployed', 'employed')" {{ $student->employement_status == 'unemployed' ? 'checked' : '' }}>
                     <label class="form-check-label" for="unemployed">Unemployed</label>
                 </div>
 
@@ -371,25 +383,25 @@
             <p style="font-weight:bold;font-size:large">3.4 Birthdate</span>
             </div>
             <div class="col p-1">
-                <input type="text" class="form-control" name="bmonth" style="border: solid 1px black;">
+                <input type="text" class="form-control" name="bmonth" value="{{ $student->bmonth }}" style="border: solid 1px black;">
                 <label class="d-flex justify-content-center align-items-center font-weight-bold text-center">
                 Month of Birth
                 </label>
             </div>
             <div class="col p-1">
-                <input type="text" class="form-control" name="bday" style="border: solid 1px black;">
+                <input type="text" class="form-control" name="bday"  value="{{ $student->bday }}"style="border: solid 1px black;">
                 <label class="d-flex justify-content-center align-items-center font-weight-bold text-center">
                 Day of Birth
                 </label>
             </div>
             <div class="col p-1">
-                <input type="text" class="form-control" name="byear" style="border: solid 1px black;">
+                <input type="text" class="form-control" name="byear"  value="{{ $student->byear }}" style="border: solid 1px black;">
                 <label class="d-flex justify-content-center align-items-center font-weight-bold text-center">
                 Year of Birth
                 </label>
             </div>
             <div class="col p-1">
-                <input type="number" class="form-control" name="age" style="border: solid 1px black;">
+                <input type="number" class="form-control" name="age"  value="{{ $student->age }}" style="border: solid 1px black;">
                 <label class="d-flex justify-content-center align-items-center font-weight-bold text-center">
                 Age
                 </label>
@@ -403,20 +415,20 @@
             <p style="font-weight:bold;font-size:large">3.4 Birthplace</span>
             </div>
             <div class="col p-1">
-                <input type="text" class="form-control" name="bcity" style="border: solid 1px black;">
+                <input type="text" class="form-control" name="bcity" value="{{ $student->bcity }}" style="border: solid 1px black;">
                 <label class="d-flex justify-content-center align-items-center font-weight-bold text-center">
                 City/Municipality
                 </label>
             </div>
 
             <div class="col p-1">
-                <input type="text" class="form-control" name="bprovince" style="border: solid 1px black;">
+                <input type="text" class="form-control" name="bprovince" value="{{ $student->bprovince }}" style="border: solid 1px black;">
                 <label class="d-flex justify-content-center align-items-center font-weight-bold text-center">
                 Province
                 </label>
             </div>
             <div class="col p-1">
-                <input type="text" class="form-control" name="bregion" style="border: solid 1px black;">
+                <input type="text" class="form-control" name="bregion" value="{{ $student->bregion }}" style="border: solid 1px black;">
                 <label class="d-flex justify-content-center align-items-center font-weight-bold text-center">
                 Region
                 </label>
@@ -432,13 +444,19 @@
         <div class="row">
             <table class="bordered-table">
                 <tbody>
-                    @foreach($educations->chunk(4) as $chunk) <!-- Chunk into groups of 4 -->
+                @foreach($educations->chunk(4) as $chunk) <!-- Chunk into groups of 4 -->
                     <tr>
                         @foreach($chunk as $row) <!-- Iterate over each chunk -->
                         <td style="text-align: left;">
-                                <div class="form-check">
-                                <input class="form-check-input" name="educations[]" value="{{ $row->id }}" type="checkbox" id="a_{{ $row->id }}">
-                                <label class="form-check-label" for="a_{{ $row->id }}" >{{ $row->title }}</label>
+                            <div class="form-check">
+                                <input class="form-check-input" 
+                                    name="educations[]" 
+                                    value="{{ $row->id }}" 
+                                    type="checkbox" 
+                                    id="a_{{ $row->id }}"
+                                    onchange="delete_training({{ $student->user_id }}, this.value)"
+                                    {{ in_array($row->id, $attainments) ? 'checked' : '' }}> <!-- Check if education_id exists in attainments -->
+                                <label class="form-check-label" for="a_{{ $row->id }}">{{ $row->title }}</label>
                             </div>
                         </td>
                         @endforeach
@@ -447,7 +465,8 @@
                         <td></td>
                         @endfor
                     </tr>
-                    @endforeach
+                @endforeach
+
                 </tbody>
             </table>
         </div>
@@ -463,21 +482,27 @@
         <div class="row">
             <table class="bordered-table">
                 <tbody>
-                    @foreach($classifications->chunk(3) as $chunk) <!-- Chunk into groups of 4 -->
-                    <tr>
-                        @foreach($chunk as $row) <!-- Iterate over each chunk -->
-                        <td style="text-align: left;">
+                    @foreach($classifications->chunk(3) as $chunk) <!-- Chunk into groups of 3 -->
+                        <tr>
+                            @foreach($chunk as $row) <!-- Iterate over each chunk -->
+                            <td style="text-align: left;">
                                 <div class="form-check">
-                                <input class="form-check-input" name="classifications[]" value="{{ $row->id }}" type="checkbox" id="b_{{ $row->id }}">
-                                <label class="form-check-label" for="b_{{ $row->id }}" >{{ $row->title }}</label>
-                            </div>
-                        </td>
-                        @endforeach
-                        <!-- If less than 4 columns, fill the rest with empty cells -->
-                        @for ($i = count($chunk); $i < 3; $i++)
-                        <td></td>
-                        @endfor
-                    </tr>
+                                    <input class="form-check-input" 
+                                        name="classifications[]" 
+                                        value="{{ $row->id }}" 
+                                        type="checkbox" 
+                                        id="b_{{ $row->id }}"
+                                        onchange="delete_learner({{ $student->user_id }}, this.value)"
+                                        {{ in_array($row->id, $learners) ? 'checked' : '' }}> <!-- Check if classification_id exists in learners -->
+                                    <label class="form-check-label" for="b_{{ $row->id }}">{{ $row->title }}</label>
+                                </div>
+                            </td>
+                            @endforeach
+                            <!-- If less than 3 columns, fill the rest with empty cells -->
+                            @for ($i = count($chunk); $i < 3; $i++)
+                            <td></td>
+                            @endfor
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
@@ -497,7 +522,8 @@
                         @foreach($chunk as $row) <!-- Iterate over each chunk -->
                         <td style="text-align: left;">
                                 <div class="form-check">
-                                <input class="form-check-input" name="type_disabilities[]" value="{{ $row->id }}" type="checkbox" id="c_{{ $row->id }}">
+                                <input class="form-check-input" name="type_disabilities[]" value="{{ $row->id }}" type="checkbox"  id="c_{{ $row->id }}"  onchange="delete_disability({{ $student->user_id }}, this.value)" {{ in_array($row->id, $types) ? 'checked' : '' }}>
+
                                 <label class="form-check-label" for="c_{{ $row->id }}" >{{ $row->title }}</label>
                             </div>
                         </td>
@@ -526,7 +552,7 @@
                         @foreach($chunk as $row) <!-- Iterate over each chunk -->
                         <td style="text-align: left;">
                                 <div class="form-check">
-                                <input class="form-check-input" name="cause_disabilities[]" value="{{ $row->id }}" type="checkbox" id="d_{{ $row->id }}">
+                                <input class="form-check-input" name="cause_disabilities[]" value="{{ $row->id }}" onchange="delete_cause({{ $student->user_id }}, this.value)" type="checkbox" id="d_{{ $row->id }}" {{ in_array($row->id, $user_causes) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="d_{{ $row->id }}" >{{ $row->title }}</label>
                             </div>
                         </td>
@@ -550,14 +576,14 @@
 
             <div class="col-12 col-md-3 pl-md-4" style="border-right: solid 1px black;">
                 <div class="form-check pt-3">
-                    <input class="form-check-input" type="radio" name="ncae" id="ncae-yes" value="yes">
+                    <input class="form-check-input" type="radio" name="ncae" id="ncae-yes" value="yes" {{ $student->ncae == 'yes' ? 'checked' : '' }}>
                     <label class="form-check-label" for="ncae-yes">Yes</label>
                 </div>
             </div>
 
             <div class="col-12 col-md-6 pl-md-4">
                 <div class="form-check pt-3">
-                    <input class="form-check-input" type="radio" name="ncae" id="ncae-no" value="no">
+                    <input class="form-check-input" type="radio" name="ncae" id="ncae-no" value="no" {{ $student->ncae == 'no' ? 'checked' : '' }}>
                     <label class="form-check-label" for="ncae-no">No</label>
                 </div>
             </div>
@@ -568,10 +594,10 @@
         <div class="row">
             <div class="col-6 pl-5 pt-2">
                 <div>
-                <h4>Where: <input type="text" name="where" style="width: 500px;border:none;border-bottom: solid 1px black;background-color:transparent"></h4> 
+                <h4>Where: <input type="text" name="where" value="{{ $student->where }}" style="width: 500px;border:none;border-bottom: solid 1px black;background-color:transparent"></h4> 
                 </div>
                 <div>
-                <h4>When: <input type="text" name="when" style="width: 500px;border:none;border-bottom: solid 1px black;background-color:transparent"></h4> 
+                <h4>When: <input type="text" name="when" value="{{ $student->when }}" style="width: 500px;border:none;border-bottom: solid 1px black;background-color:transparent"></h4> 
                 </div>
             </div>
             <div class="col-6 p-1">
@@ -580,15 +606,15 @@
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
-        <strong><h4 style="color: blue; margin: 0;"> 8. Name of Course/Qualification <input type="text" name="qualification" style="width: 500px;border:none;background-color:transparent"></h4></strong>
+        <strong><h4 style="color: blue; margin: 0;"> 8. Name of Course/Qualification <input type="text" value="{{ $student->qualification }}" name="qualification" style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
-        <strong><h4 style="color: blue; margin: 0;"> 9. If Scholar, What Type of Scholarship Package (TWSP, PESDA, STEP)? <input name="type_scholar" type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
+        <strong><h4 style="color: blue; margin: 0;"> 9. If Scholar, What Type of Scholarship Package (TWSP, PESDA, STEP)? <input name="type_scholar" value="{{ $student->type_scholar }}" type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
-        <strong><h4 style="color: blue; margin: 0;"> 10. Privacy Disclaimer <input name="disclaimer" type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
+        <strong><h4 style="color: blue; margin: 0;"> 10. Privacy Disclaimer <input name="disclaimer" value="{{ $student->disclaimer }}" type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
@@ -596,7 +622,7 @@
             
             <div class="col-12 col-md-3 pl-md-4" >
                 <div class="form-check pt-3">
-                    <input class="form-check-input" type="checkbox" name="rdy" id="yes" value="yes" onclick="toggleCheckbox1('yes', 'no')">
+                    <input class="form-check-input" type="checkbox" name="rdy" id="yes" value="yes" onclick="toggleCheckbox1('yes', 'no')" checked>
                     <label class="form-check-label" for="yes"><strong>Agree</strong></label>
                 </div>
             </div>
@@ -663,13 +689,122 @@
 
     </div>
     <br>
-    <button type="submit" class="btn btn-primary float-right">Sign in</button>
+    @if(Auth::user()->type == 'Admin')
+    @else
+    <button type="submit" class="btn btn-primary float-right">Update</button>
+    @endif
     </form>
-    <br>
+
+        @if(Auth::user()->type == 'Admin')
+
+     
+
+        <a href="javascript:void(0)" onclick="approved({{ $student->id }})" class="btn btn-success float-right mr-2">
+            Approved
+        </a>
+
+        <a href="javascript:void(0)"  onclick="reject({{ $student->id }})" class="btn btn-danger float-right mr-2">
+            Reject
+        </a>
+        <a href="{{ route('guest.profile', ['id' => $student->user_id]) }}"  class="btn btn-primary float-right mr-2">
+            Back
+        </a>
+        @else
+        @endif
+     
+
+  
+
+    
     </div>
 </div>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title h4" id="myLargeModalLabel">Reason for rejection</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body reason-body">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
 </x-app-layout>
 <script>
+      const appUrl = document.querySelector('meta[name="app-url"]').getAttribute('content');
+
+ function approved(id)
+ {
+    Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, approved it!',
+                cancelButtonText: 'No, cancel!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "POST",
+                        url: appUrl + '/guest/approved', // Ensure 'appUrl' is defined and valid
+                        headers: {
+                            'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
+                        },
+                        data: {
+                            id: id // Your data
+                        }
+                    }).done(function(data) {
+                        // Successful deletion
+                        Swal.fire(
+                            'Approved!',
+                            'The Tesda Form has been approved.',
+                            'success'
+                        ).then(() => {
+                            // Optionally, remove the row from the table
+                            window.location.reload();
+                        });
+                    }).fail(function(xhr, status, error) {
+                        // Handle error
+                        Swal.fire(
+                            'Error!',
+                            'There was an error approving the form.',
+                            'error'
+                        );
+                        console.error('Error:', error);
+                    });
+                } else {
+                    Swal.fire(
+                        'Cancelled',
+                        'The form was not approved.',
+                        'info'
+                    );
+                }
+            });
+ }  
+
+ function reject(id)
+ {
+    $('.bd-example-modal-lg').modal('show');
+    $.ajax({
+        type: "POST",
+        url:appUrl + '/guest/reason',
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        },
+        data: {
+            id: id,
+        },
+        success: function(data) {
+            $(".reason-body").show().html(data);
+        }
+    });
+ }
 
 function toggleCheckbox1(currentId, otherId) {
     const currentCheckbox = document.getElementById(currentId);
@@ -687,5 +822,74 @@ function toggleCheckbox(clicked) {
         if (checkbox !== clicked) checkbox.checked = false;
     });
 }
+
+function delete_training(id, value)
+{
+    $.ajax({
+        type: "POST",
+        url:appUrl + '/student/delete-education',
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        },
+        data: {
+            id: id,
+            value: value
+        },
+        success: function(data) {
+        }
+    });
+}
+
+function delete_learner(id, value)
+{
+    $.ajax({
+        type: "POST",
+        url:appUrl + '/student/delete-learner',
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        },
+        data: {
+            id: id,
+            value: value
+        },
+        success: function(data) {
+        }
+    });
+}
+
+function delete_disability(id, value)
+{
+    $.ajax({
+        type: "POST",
+        url:appUrl + '/student/delete-disability',
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        },
+        data: {
+            id: id,
+            value: value
+        },
+        success: function(data) {
+        }
+    });
+}
+
+function delete_cause(id, value)
+{
+    $.ajax({
+        type: "POST",
+        url:appUrl + '/student/delete-cause',
+        headers: {
+            'X-CSRF-TOKEN': csrfToken
+        },
+        data: {
+            id: id,
+            value: value
+        },
+        success: function(data) {
+        }
+    });
+}
+
 
 </script>

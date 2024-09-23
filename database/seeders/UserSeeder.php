@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'last_name' => 'Account',
             'email' => 'developer@account.test',
             'password' => bcrypt('password'),
-            'type' => UserType::Developer,
+            'type' => UserType::Admin,
         ]);
         
     }

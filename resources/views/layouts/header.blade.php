@@ -1,13 +1,12 @@
-	<!-- [ Header ] start -->
-	<header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
+<header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
 		
+			
 				<div class="m-header">
 					<a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
 					<a href="#!" class="b-brand">
 						<!-- ========   change your logo hear   ============ -->
-					
-						<img src="{{ asset('assets/images/logo.png') }}" alt="" class="logo">
-						<img src="{{ asset('assets/images/logo-icon.png') }}" alt="" class="logo-thumb">
+						<img src="assets/images/logo.png" alt="" class="logo">
+						<img src="assets/images/logo-icon.png" alt="" class="logo-thumb">
 					</a>
 					<a href="#!" class="mob-toggler">
 						<i class="feather icon-more-vertical"></i>
@@ -15,7 +14,7 @@
 				</div>
 				<div class="collapse navbar-collapse">
 			
-					<ul class="navbar-nav ml-auto">
+				<ul class="navbar-nav ml-auto">
 						<li>
 							<div class="dropdown">
 								<a class="dropdown-toggle" href="#" data-toggle="dropdown">
@@ -36,7 +35,7 @@
 										</li>
 										<li class="notification">
 											<div class="media">
-												<img class="img-radius" src="assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
+												<img class="img-radius" src="{{ asset('assets/images/tesda.png') }}" alt="Generic placeholder image">
 												<div class="media-body">
 													<p><strong>John Doe</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>5 min</span></p>
 													<p>New ticket Added</p>
@@ -48,7 +47,7 @@
 										</li>
 										<li class="notification">
 											<div class="media">
-												<img class="img-radius" src="assets/images/user/avatar-2.jpg" alt="Generic placeholder image">
+												<img class="img-radius" src="{{ asset('assets/images/tesda.png') }}" alt="Generic placeholder image">
 												<div class="media-body">
 													<p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>10 min</span></p>
 													<p>Prchace New Theme and make payment</p>
@@ -57,7 +56,7 @@
 										</li>
 										<li class="notification">
 											<div class="media">
-												<img class="img-radius" src="assets/images/user/avatar-1.jpg" alt="Generic placeholder image">
+												<img class="img-radius" src="{{ asset('assets/images/tesda.png') }}" alt="Generic placeholder image">
 												<div class="media-body">
 													<p><strong>Sara Soudein</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>12 min</span></p>
 													<p>currently login</p>
@@ -87,33 +86,29 @@
 								</a>
 								<div class="dropdown-menu dropdown-menu-right profile-notification">
 									<div class="pro-head">
-										<img src="assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+										<img src="{{ asset('assets/images/tesda.png') }}" class="img-radius" alt="User-Profile-Image">
 										<span>{{ Auth::user()->first_name }}</span>
 										<a href="auth-signin.html" class="dud-logout" title="Logout">
 											<i class="feather icon-log-out"></i>
 										</a>
 									</div>
 									<ul class="pro-body">
-										<li><a href="route('profile.edit')" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
-										<li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
+										<li><a href="{{ route('guest.profile', ['id' => Auth::user()->id ]) }}" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
 										<li>
-										<form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
+											<a href="{{ route('logout') }}" class="dropdown-item"
+											onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+											<i class="feather icon-log-out"></i> Log Out
+											</a>
+											<form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+												@csrf
+											</form>
 										</li>
-                                        
 									</ul>
 								</div>
 							</div>
 						</li>
 					</ul>
+
+
 				</div>
-			
 	</header>
-	<!-- [ Header ] end -->
