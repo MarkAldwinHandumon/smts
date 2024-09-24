@@ -17,6 +17,8 @@ return new class extends Migration
             $table->text('description')->nullable()->default(null);
             $table->string('slots')->nullable()->default(null);
             $table->string('upload')->nullable()->default(null);
+            $table->string('batch')->nullable()->default(null);
+            $table->string('status')->nullable()->default(null);
             $table->date('start_date')->nullable()->default(null);
             $table->date('end_date')->nullable()->default(null);
             $table->timestamps();

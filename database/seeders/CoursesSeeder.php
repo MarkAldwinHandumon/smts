@@ -18,6 +18,7 @@ class CoursesSeeder extends Seeder
             'description' => 'This is the other introductory course that covers the basic knowledge of Massage Therapy. 
                                 It tackles the three stages of massage therapy - the pre-massage, massage proper, and post-massage.',
             'slots' => 15,
+            'slots' => 1,
             'start_date' => '2024-01-01', // Use YYYY-MM-DD format for dates
             'end_date' => '2024-01-03', // Use YYYY-MM-DD format for dates
         ]);
@@ -27,6 +28,7 @@ class CoursesSeeder extends Seeder
             'description' => 'The 356-hour program teaches students to prepare and serve food and beverages in establishments like restaurants,
                                 hotels, and banquets. It covers topics like taking orders, promoting products, and handling customer concerns.',
             'slots' => 15,
+            'slots' => 1,
             'start_date' => '2024-01-01', // Use YYYY-MM-DD format for dates
             'end_date' => '2024-01-03', // Use YYYY-MM-DD format for dates
         ]);

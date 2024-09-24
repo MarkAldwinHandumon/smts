@@ -42,4 +42,9 @@ class Student extends Model
     {
         return $this->belongsTo(Courses::class, 'course_id', 'id');
     }
+
+    public function address(): BelongsTo
+    {
+        return $this->belongsTo(Address::class, 'user_id', 'user_id');
+    }
 }

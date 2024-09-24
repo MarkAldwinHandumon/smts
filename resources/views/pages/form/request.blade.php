@@ -172,7 +172,7 @@
                     <span>1.2.   Entry Date:</span>
                 </td>
                 <td class="column6" style="width:8%;">
-                <input type="date" name="entry_date" class="form-control" style="width:100px;height:20px;text-align:center" value="mm/dd/yy">
+                <input type="date" name="entry_date" class="form-control" style="width:100px;height:15px;text-align:center;font-size:10px;" value="{{ date('m/d/Y', strtotime($students->user->created_at)) }}">
                 </td>
             </tr>
         </table>
@@ -198,16 +198,16 @@
                 </td>
            
                 <td style="width: 20px;">
-                <input type="text" class="form-control" name="last_name" required style="border:solid 1px;height:16px;width:160px">
+                <input type="text" class="form-control" name="last_name" value="{{ $students->user->last_name }}" required style="border:solid 1px;height:16px;width:160px;font-size:10px;text-align: center;">
                     <center><span style="font-size: 9px;padding:0px;"><strong>Last Name, Extension Name (e.g:Jr.)</strong></span></center>
                 </td>
 
                 <td style="width: 20px;">
-                  <input type="text" class="form-control" name="first_name" required style="border:solid 1px;height:16px;width:160px">
+                  <input type="text" class="form-control" name="first_name" value="{{ $students->user->first_name }}" required style="border:solid 1px;height:16px;width:160px;font-size:10px;text-align: center;">
                     <center><span style="font-size: 9px;padding:0px;"><strong>First</strong></span></center>
                 </td>
                 <td style="width: 20px;">
-                      <input type="text" class="form-control" name="middle_name" required style="border:solid 1px;height:16px;width:160px">
+                      <input type="text" class="form-control" name="middle_name" value="{{ $students->user->middle_name }}" required style="border:solid 1px;height:16px;width:160px;font-size:10px;text-align: center;">
                       <center><span style="font-size: 9px;padding:0px;"><strong>Middle</strong></span></center>
                 </td>
             </tr>
@@ -222,16 +222,16 @@
                 </td>
 
                 <td style="width: 20px;">
-                <input type="text" class="form-control" name="city" required style="border:solid 1px;height:16px;width:160px">
+                <input type="text" class="form-control" name="city" value="{{ $students->address->city }}" required style="border:solid 1px;height:16px;width:160px;font-size:10px;text-align: center;">
                     <center><span style="font-size: 9px;padding:0px;"><strong>City/Municipality</strong></span></center>
                 </td>
 
                 <td style="width: 20px;">
-                  <input type="text" class="form-control" name="province" required style="border:solid 1px;height:16px;width:160px">
+                  <input type="text" class="form-control" name="province" value="{{ $students->address->province }}" required style="border:solid 1px;height:16px;width:160px;font-size:10px;text-align: center;">
                     <center><span style="font-size: 9px;padding:0px;"><strong>Province</strong></span></center>
                 </td>
                 <td style="width: 20px;">
-                      <input type="text" class="form-control" name="region" required style="border:solid 1px;height:16px;width:160px">
+                      <input type="text" class="form-control" name="region" value="{{ $students->address->region }}" required style="border:solid 1px;height:16px;width:160px;font-size:10px;text-align: center;">
                       <center><span style="font-size: 9px;padding:0px;"><strong>Region</strong></span></center>
                 </td>
             </tr>
@@ -244,16 +244,16 @@
                 </td>
 
                 <td style="width: 20px;">
-                <input type="text" class="form-control" name="street" required style="border:solid 1px;height:16px;width:160px">
+                <input type="text" class="form-control" name="street" value="{{ $students->address->street }}" required style="border:solid 1px;height:16px;width:160px;font-size:10px;text-align: center;">
                     <center><span style="font-size: 9px;padding:0px;"><strong>Number, Street</strong></span></center>
                 </td>
 
                 <td style="width: 20px;">
-                  <input type="text" class="form-control" name="barangay" required style="border:solid 1px;height:16px;width:160px">
+                  <input type="text" class="form-control" name="barangay" value="{{ $students->address->barangay }}" required style="border:solid 1px;height:16px;width:160px;font-size:10px;text-align: center;">
                     <center><span style="font-size: 9px;padding:0px;"><strong>Barangay</strong></span></center>
                 </td>
                 <td style="width: 20px;">
-                      <input type="text" class="form-control" name="district" required style="border:solid 1px;height:16px;width:160px">
+                      <input type="text" class="form-control" name="district" value="{{ $students->address->district }}" required style="border:solid 1px;height:16px;width:160px;font-size:10px;text-align: center;">
                       <center><span style="font-size: 9px;padding:0px;"><strong>District</strong></span></center>
                 </td>
             </tr>
@@ -266,16 +266,16 @@
                 </td>
 
                 <td style="width: 20px;">
-                <input type="text" class="form-control" name="email" required style="border:solid 1px;height:16px;width:160px">
+                <input type="text" class="form-control" name="email" value="{{ $students->user->email }}" required style="border:solid 1px;height:16px;width:160px;font-size:10px;text-align: center;">
                     <center><span style="font-size: 9px;padding:0px;"><strong>Email Address/Facebook Account:</strong></span></center>
                 </td>
 
                 <td style="width: 20px;">
-                  <input type="text" class="form-control" name="phone" required style="border:solid 1px;height:16px;width:160px">
+                  <input type="text" class="form-control" name="phone" value="{{ $students->user->phone }}" required style="border:solid 1px;height:16px;width:160px;font-size:10px;text-align: center;">
                     <center><span style="font-size: 9px;padding:0px;"><strong> Contact No:</strong></span></center>
                 </td>
                 <td style="width: 20px;">
-                      <input type="text" class="form-control" name="nationality" required style="border:solid 1px;height:16px;width:160px">
+                      <input type="text" class="form-control" name="nationality" value="{{ $students->nationality }}" required style="border:solid 1px;height:16px;width:160px;font-size:10px;text-align: center;">
                       <center><span style="font-size: 9px;padding:0px;"><strong>Nationality</strong></span></center>
                 </td>
             </tr>
@@ -298,12 +298,12 @@
                     <span style="padding-left:25px; font-size: 9px; font-weight:bold;">3.1. Sex</span>
 
                     <div style="display: flex; align-items: center; padding-left: 44px;padding-top:10px;">
-                        <input class="form-check-input" type="checkbox" id="male" name="sex" value="male" onclick="toggleCheckbox1('male', 'female')" style="font-size: 15px; padding: 0; line-height: .10;">
+                        <input class="form-check-input" type="checkbox" id="male" name="sex" value="male" onclick="toggleCheckbox1('male', 'female')"   {{ $students->sex == 'male' ? 'checked' : '' }} style="font-size: 15px; padding: 0; line-height: .10;">
                         <span style="font-size: 9px; padding: 0; line-height:.5;">Male</span> <!-- Adjusted line-height -->
                     </div>
 
                     <div style="display: flex; align-items: center; padding-left: 44px;">
-                        <input class="form-check-input" type="checkbox" id="female" name="sex" value="female" onclick="toggleCheckbox1('female', 'male')" style="font-size: 15px; padding: 0; line-height: .10;">
+                        <input class="form-check-input" type="checkbox" id="female" name="sex" value="female" onclick="toggleCheckbox1('female', 'male')"   {{ $students->sex == 'female' ? 'checked' : '' }} style="font-size: 15px; padding: 0; line-height: .10;">
                         <span style="font-size: 9px; padding: 0; line-height: .5;">Female</span> <!-- Adjusted line-height -->
                     </div>
                 <br>
@@ -315,22 +315,22 @@
                     <span style="padding-left:25px; font-size: 9px; font-weight:bold;">3.2.  Civil Status</span>
 
                     <div style="display: flex; align-items: center; padding-left: 44px;padding-top:10px;">
-                        <input class="form-check-input" name="status" type="checkbox" value="single" id="single" onclick="toggleCheckbox(this)" style="font-size: 15px; padding: 0; line-height: .10;">
+                        <input class="form-check-input" name="status" type="checkbox" value="single" id="single" {{ $students->status == 'single' ? 'checked' : '' }} onclick="toggleCheckbox(this)" style="font-size: 15px; padding: 0; line-height: .10;">
                         <span style="font-size: 9px; padding: 0; line-height:.5;">Single</span> <!-- Adjusted line-height -->
                     </div>
 
                     <div style="display: flex; align-items: center; padding-left: 44px;">
-                        <input class="form-check-input"name="status" type="checkbox" value="married" id="married" onclick="toggleCheckbox(this)" style="font-size: 15px; padding: 0; line-height: .10;">
+                        <input class="form-check-input"name="status" type="checkbox" value="married" id="married" {{ $students->status == 'married' ? 'checked' : '' }} onclick="toggleCheckbox(this)" style="font-size: 15px; padding: 0; line-height: .10;">
                         <span style="font-size: 9px; padding: 0; line-height: .5;">Married</span> <!-- Adjusted line-height -->
                     </div>
 
                     <div style="display: flex; align-items: center; padding-left: 44px;">
-                        <input class="form-check-input"name="status" type="checkbox" value="widower" id="widower" onclick="toggleCheckbox(this)" style="font-size: 15px; padding: 0; line-height: .10;">
+                        <input class="form-check-input"name="status" type="checkbox" value="widower" id="widower" {{ $students->status == 'widower' ? 'checked' : '' }} onclick="toggleCheckbox(this)" style="font-size: 15px; padding: 0; line-height: .10;">
                         <span style="font-size: 9px; padding: 0; line-height: .5;">Widower</span> <!-- Adjusted line-height -->
                     </div>
 
                     <div style="display: flex; align-items: center; padding-left: 44px;">
-                        <input class="form-check-input"name="status" type="checkbox" value="separated" id="separated" onclick="toggleCheckbox(this)" style="font-size: 15px; padding: 0; line-height: .10;">
+                        <input class="form-check-input"name="status" type="checkbox" value="separated" id="separated" {{ $students->status == 'separated' ? 'checked' : '' }} onclick="toggleCheckbox(this)" style="font-size: 15px; padding: 0; line-height: .10;">
                         <span style="font-size: 9px; padding: 0; line-height: .5;">Separated</span> <!-- Adjusted line-height -->
                     </div>
                  
@@ -339,12 +339,12 @@
                 <td class="column6" style="width:8%;border-right:solid 1px;">
                     <span style="padding-left:25px; font-size: 9px; font-weight:bold;"> 3.3   Employment  Status (before the training)</span>
                     <div style="display: flex; align-items: center; padding-left: 44px;padding-top:10px;">
-                        <input class="form-check-input" name="employement_status" type="checkbox" id="employed" value="employed" onclick="toggleCheckbox1('employed', 'unemployed')" style="font-size: 15px; padding: 0; line-height: .10;">
+                        <input class="form-check-input" name="employement_status" type="checkbox" id="employed" value="employed" {{ $students->employement_status == 'employed' ? 'checked' : '' }} onclick="toggleCheckbox1('employed', 'unemployed')" style="font-size: 15px; padding: 0; line-height: .10;">
                         <span style="font-size: 9px; padding: 0; line-height:.5;">Employed</span> <!-- Adjusted line-height -->
                     </div>
 
                     <div style="display: flex; align-items: center; padding-left: 44px;">
-                        <input class="form-check-input" name="employement_status" type="checkbox" id="unemployed" value="unemployed" onclick="toggleCheckbox1('unemployed', 'employed')" style="font-size: 15px; padding: 0; line-height: .10;">
+                        <input class="form-check-input" name="employement_status" type="checkbox" id="unemployed" value="unemployed" {{ $students->employement_status == 'unemployed' ? 'checked' : '' }} onclick="toggleCheckbox1('unemployed', 'employed')" style="font-size: 15px; padding: 0; line-height: .10;">
                         <span style="font-size: 9px; padding: 0; line-height: .5;">Unemployed</span> <!-- Adjusted line-height -->
                     </div>
                     <br>
@@ -366,21 +366,21 @@
                 </td>
            
                 <td style="padding: 5px;">
-                <input type="text" class="form-control" name="bmonth" required style="border:solid 1px;height:16px;width:130px">
+                <input type="text" class="form-control" name="bmonth" value="{{ $students->bmonth }}" required style="border:solid 1px;height:16px;width:130px;font-size:10px;text-align: center;">
                     <center><span style="font-size: 9px;padding:0px;"><strong>Month of Birth</strong></span></center>
                 </td>
 
                 <td>
-                  <input type="text" class="form-control" name="bday" required style="border:solid 1px;height:16px;width:130px">
+                  <input type="text" class="form-control" name="bday" value="{{ $students->bday }}" required style="border:solid 1px;height:16px;width:130px;font-size:10px;text-align: center;">
                     <center><span style="font-size: 9px;padding:0px;"><strong>Day of Birth</strong></span></center>
                 </td>
                 <td>
-                      <input type="text" class="form-control" name="byear" required style="border:solid 1px;height:16px;width:130px">
+                      <input type="text" class="form-control" name="byear" value="{{ $students->byear }}" required style="border:solid 1px;height:16px;width:130px;font-size:10px;text-align: center;">
                       <center><span style="font-size: 9px;padding:0px;"><strong>Year of Birth</strong></span></center>
                 </td>
 
                 <td>
-                      <input type="text" class="form-control" name="age" required style="border:solid 1px;height:16px;width:130px">
+                      <input type="text" class="form-control" name="age" value="{{ $students->age }}" required style="border:solid 1px;height:16px;width:130px;font-size:10px;text-align: center;">
                       <center><span style="font-size: 9px;padding:0px;"><strong>Age</strong></span></center>
                 </td>
             </tr>
@@ -397,16 +397,16 @@
                 </td>
            
                 <td style="padding: 2px;">
-                <input type="text" class="form-control" name="bcity" required style="border:solid 1px;height:16px;width:130px">
+                <input type="text" class="form-control" name="bcity" value="{{ $students->bcity }}"  required style="border:solid 1px;height:16px;width:130px;font-size:10px;text-align: center;">
                     <center><span style="font-size: 9px;padding:0px;"><strong>City/Municipality</strong></span></center>
                 </td>
 
                 <td>
-                  <input type="text" class="form-control" name="bprovince" required style="border:solid 1px;height:16px;width:130px">
+                  <input type="text" class="form-control" name="bprovince" value="{{ $students->bprovince }}"  required style="border:solid 1px;height:16px;width:130px;font-size:10px;text-align: center;">
                     <center><span style="font-size: 9px;padding:0px;"><strong>Province</strong></span></center>
                 </td>
                 <td>
-                      <input type="text" class="form-control" name="bregion" required style="border:solid 1px;height:16px;width:130px">
+                      <input type="text" class="form-control" name="bregion" value="{{ $students->bregion }}"  required style="border:solid 1px;height:16px;width:130px;font-size:10px;text-align: center;">
                       <center><span style="font-size: 9px;padding:0px;"><strong>Region</strong></span></center>
                 </td>
             </tr>
@@ -429,7 +429,7 @@
                         @foreach($chunk as $row) <!-- Iterate over each chunk -->
                         <td style="text-align: left;border:solid 1px;padding:5px;border-top:none;">
                                 <div class="form-check">
-                                <input class="form-check-input" name="educations[]" value="{{ $row->id }}" type="checkbox" id="a_{{ $row->id }}" style="font-size: 15px; padding: 0; line-height: .10;">
+                                <input class="form-check-input" name="educations[]" value="{{ $row->id }}" type="checkbox" id="a_{{ $row->id }}" {{ in_array($row->id, $attainments) ? 'checked' : '' }} style="font-size: 15px; padding: 0; line-height: .10;">
                                 <span class="form-check-label" for="a_{{ $row->id }}" style="font-size:9px;" >{{ $row->title }}</span>
                             </div>
                         </td>
@@ -460,7 +460,7 @@
                     @foreach($chunk as $row) <!-- Iterate over each chunk -->
                     <td style="text-align: left;border:solid 1px;padding:5px;border-top:none;">
                             <div class="form-check">
-                            <input class="form-check-input" name="classifications[]" value="{{ $row->id }}" type="checkbox" id="b_{{ $row->id }}" style="font-size: 15px; padding: 0; line-height: .10;">
+                            <input class="form-check-input" name="classifications[]" value="{{ $row->id }}" type="checkbox" id="b_{{ $row->id }}" {{ in_array($row->id, $learners) ? 'checked' : '' }} style="font-size: 15px; padding: 0; line-height: .10;">
                             <label class="form-check-label" for="b_{{ $row->id }}" style="font-size:9px;" >{{ $row->title }}</label>
                         </div>
                     </td>
@@ -491,7 +491,7 @@
                     @foreach($chunk as $row) <!-- Iterate over each chunk -->
                     <td style="text-align: left;border:solid 1px;padding:5px;border-top:none;">
                             <div class="form-check">
-                            <input class="form-check-input" name="type_disabilities[]" value="{{ $row->id }}" type="checkbox" id="c_{{ $row->id }}" style="font-size: 15px; padding: 0; line-height: .10;">
+                            <input class="form-check-input" name="type_disabilities[]" value="{{ $row->id }}" type="checkbox" id="c_{{ $row->id }}" style="font-size: 15px; padding: 0; line-height: .10;" {{ in_array($row->id, $types) ? 'checked' : '' }}>
                             <label class="form-check-label" for="c_{{ $row->id }}" style="font-size:9px;">{{ $row->title }}</label>
                         </div>
                     </td>
@@ -523,7 +523,7 @@
                     @foreach($chunk as $row) <!-- Iterate over each chunk -->
                     <td style="text-align: left;border:solid 1px;padding:5px;border-top:none;">
                             <div class="form-check">
-                            <input class="form-check-input" name="cause_disabilities[]" value="{{ $row->id }}" type="checkbox" id="d_{{ $row->id }}" style="font-size: 15px; padding: 0; line-height: .10;">
+                            <input class="form-check-input" name="cause_disabilities[]" value="{{ $row->id }}" type="checkbox" id="d_{{ $row->id }}" style="font-size: 15px; padding: 0; line-height: .10;" {{ in_array($row->id, $user_causes) ? 'checked' : '' }}>
                             <label class="form-check-label" for="d_{{ $row->id }}" style="font-size:9px;" >{{ $row->title }}</label>
                         </div>
                     </td>
@@ -547,7 +547,7 @@
                 <td class="column6" style="width:8%;border-right:solid 1px;">
 
                     <div style="display: flex; align-items: center; padding-left: 44px;padding-top:10px;">
-                        <input class="form-check-input" name="ncae" type="checkbox" value="yes" id="yes" onclick="toggleCheckbox(this)" style="font-size: 15px; padding: 0; line-height: .10;">
+                        <input class="form-check-input" name="ncae" type="checkbox" value="yes" id="yes" onclick="toggleCheckbox(this)" style="font-size: 15px; padding: 0; line-height: .10;"  {{ $students->ncae == 'yes' ? 'checked' : '' }}>
                         <span style="font-size: 9px; padding: 0; line-height:.5;">Yes</span> <!-- Adjusted line-height -->
                     </div>
 
@@ -556,7 +556,7 @@
                 <td class="column6" style="width:8%;border-right:solid 1px;">
 
                     <div style="display: flex; align-items: center; padding-left: 44px;padding-top:10px;">
-                        <input class="form-check-input" name="ncae" type="checkbox" value="no" id="no" onclick="toggleCheckbox(this)" style="font-size: 15px; padding: 0; line-height: .10;">
+                        <input class="form-check-input" name="ncae" type="checkbox" value="no" id="no" onclick="toggleCheckbox(this)" style="font-size: 15px; padding: 0; line-height: .10;" {{ $students->ncae == 'no' ? 'checked' : '' }}>
                         <span style="font-size: 9px; padding: 0; line-height:.5;">No</span> <!-- Adjusted line-height -->
                     </div>
 
@@ -573,7 +573,7 @@
                 </td>
                 
                 <td class="column7" style="font-size:11px;font-weight:normal;">
-                    Where: <input type="text" class="asd" style="width: 150px;height: 15px;border:none;border-bottom: solid 1px black;background-color:transparent">
+                    Where: <input type="text" class="asd" value="{{ $students->where }}" style="width: 150px;height: 15px;border:none;border-bottom: solid 1px black;background-color:transparent">
                 </td>
             </tr>
 
@@ -583,7 +583,7 @@
                 </td>
                 
                 <td class="column7" style="font-size:11px;font-weight:normal;">
-                    Where: <input type="text" class="asd" style="width: 150px;height: 15px;border:none;border-bottom: solid 1px black;background-color:transparent">
+                When: <input type="text" value="{{ $students->when }}" class="asd" style="width: 150px;height: 15px;border:none;border-bottom: solid 1px black;background-color:transparent">
                 </td>
             </tr>
         </table>
@@ -592,7 +592,7 @@
             <tr>
                 <td>
                     <strong style="font-size:15px;color:blue;">
-                    8. Name of Course/Qualification <input type="text" class="asd" style="width: 150px;height: 15px;border:none;background-color:transparent">
+                    8. Name of Course/Qualification <input type="text" class="asd" value="{{ $students->qualification }}" style="color:black;width: 150px;height: 15px;border:none;background-color:transparent;font-size:small;font-weight:normal;">
                     </strong>
                 </td>
             </tr>
@@ -602,7 +602,7 @@
             <tr>
                 <td>
                     <strong style="font-size:15px;color:blue;">
-                    9. If Scholar, What Type of Scholarship Package (TWSP, PESDA, STEP)? <input type="text" class="asd" style="width: 150px;height: 15px;border:none;background-color:transparent">
+                    9. If Scholar, What Type of Scholarship Package (TWSP, PESDA, STEP)? <input type="text" class="asd" value="{{ $students->type_scholar }}" style="color:black;width: 150px;height: 15px;border:none;background-color:transparent;font-size:small;font-weight:normal;">
                     </strong>
                 </td>
             </tr>
@@ -612,7 +612,7 @@
             <tr>
                 <td>
                     <strong style="font-size:15px;color:blue;">
-                    10. Privacy Disclaimer <input type="text" class="asd" style="width: 150px;height: 15px;border:none;background-color:transparent">
+                    10. Privacy Disclaimer <input type="text" value="{{ $students->disclaimer }}" class="asd" style="width: 150px;color:black;height: 15px;border:none;background-color:transparent">
                     </strong>
                 </td>
             </tr>

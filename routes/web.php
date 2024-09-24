@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\PageController;
@@ -24,10 +25,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile/{id}', [ProfileController::class, 'profile'])->name('profile');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+          Route::get('/profile/{id}', [ScheduleController::class, 'profile'])->name('profile');
     Route::name('teacher.')->prefix('/teacher')->group(function () {
         Route::get('/', [TeacherController::class, 'index'])->name('index');
         Route::get('/create', [TeacherController::class, 'create'])->name('create');
@@ -57,7 +60,10 @@ Route::middleware('auth')->group(function () {
         Route::delete('/delete/{id}', [CoursesController::class, 'destroy'])->name('delete');
         Route::get('/edit/{id}', [CoursesController::class, 'edit'])->name('edit');
         Route::put('/update/{id}', [CoursesController::class, 'update'])->name('update');
+        Route::post('/status', [CoursesController::class, 'status'])->name('status');
     });
+
+
 
     Route::name('guest.')->prefix('/guest')->group(function () {
         Route::get('/', [ScheduleController::class, 'index'])->name('index');
@@ -95,7 +101,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/print/pdfrequest/{id}', [FormController::class, 'printPdfRequest'])->name('print.pdfrequest');
 
-
+    Route::name('certificate.')->prefix('/certificate')->group(function () {
+        Route::get('/', [CertificateController::class, 'index'])->name('index');
+    });
 });
 
 

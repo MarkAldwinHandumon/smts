@@ -1,19 +1,19 @@
-<nav class="pcoded-navbar  ">
+<nav class="pcoded-navbar" style="background-color: green;">
 	<div class="navbar-wrapper  ">
 		<div class="navbar-content scroll-div " >
 			
-			<div class="">
-				<div class="main-menu-header">
+			<!-- <div class="" style="">
+				<div class="main-menu-header" style="background-color: green;">
 					<img class="img-radius" src="{{ asset('assets/images/tesda.png') }}" alt="User-Profile-Image">
 					<div class="user-details">
 						<span>{{ Auth::user()->first_name }}</span>
 						<div id="more-details">{{ Auth::user()->type }}</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			
 			@if(Auth::user()->type == 'Admin')
-			<ul class="nav pcoded-inner-navbar ">
+			<ul class="nav pcoded-inner-navbar">
 				<li class="nav-item pcoded-menu-caption">
 					<label>Navigation</label>
 				</li>
@@ -23,7 +23,7 @@
 
 				<li class="nav-item pcoded-hasmenu">
 					<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Courses</span></a>
-					<ul class="pcoded-submenu">
+					<ul class="pcoded-submenu" style="background-color: #e59a0d;">
 						<li><a href="{{ route('courses.index') }}" >List</a></li>
 						<li><a href="{{ route('courses.create') }}" >Create</a></li>
 					</ul>
@@ -31,7 +31,7 @@
 
 				<li class="nav-item pcoded-hasmenu">
 					<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Teacher's</span></a>
-					<ul class="pcoded-submenu">
+					<ul class="pcoded-submenu" style="background-color: orange;">
 						<li><a href="{{ route('teacher.index') }}" >List</a></li>
 						<li><a href="{{ route('teacher.create') }}" >Create</a></li>
 					</ul>
@@ -47,10 +47,10 @@
 
 				<li class="nav-item pcoded-hasmenu">
 					<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Settings</span></a>
-					<ul class="pcoded-submenu">
+					<ul class="pcoded-submenu" style="background-color: orange;">
 						<li><a href="{{ route('requirements.index') }}" >Requirements</a></li>
-						<li><a href="{{ route('tesda.index') }}" >Forms</a></li>
-						<li><a href="" >Certificates</a></li>
+						<li><a href="{{ route('tesda.index') }}">Forms</a></li>
+						<li><a href="{{ route('certificate.index') }}">Certificates</a></li>
 					</ul>
 				</li>
 
@@ -67,7 +67,7 @@
 
 				<li class="nav-item pcoded-hasmenu">
 					<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Student's</span></a>
-					<ul class="pcoded-submenu">
+					<ul class="pcoded-submenu" style="background-color: orange;">
 						<li><a href="{{ route('student.index') }}" >List</a></li>
 					</ul>
 				</li>

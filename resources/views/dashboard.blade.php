@@ -611,40 +611,42 @@
             <div class="row g-4">
                 @foreach($courses as $course)
                 <div class="col-xl-3">
-                    <div class="card p-5">
+                    <div class="card p-5" style="height: 100%;">
                         @if($course->upload)
                         <center><img src="{{ asset($course->upload) }}" alt="{{ $course->title }}" class="img-fluid card-img-top" style="width: 30%;"></center>
                         @else
                         <center><img src="{{ asset('assets/images/tesda.png') }}" alt="user image" class="img-fluid card-img-top" style="width: 30%;"></center>
                         @endif
-                        <div class="card-body">
-                            <h5 class="card-title" style="text-align: center;">Slots left :{{ $course->slots }}</h5>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-center">Slots left: {{ $course->slots }}</h5>
 
                             <div class="progress mb-4" style="height: 20px;">
-                                <div class="progress-bar" role="progressbar" style="" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
 
-                            <h5 class="card-title" style="text-align: center;">{{ $course->title }}</h5>
-                            <p class="card-text" style="text-align: justify;">{{ $course->description }}</p>
+                            <h5 class="card-title text-center">{{ $course->title }} <br> Batch {{ $course->batch }} </h5>
 
-                            <div class="post-meta" style="display: flex; justify-content: space-between; align-items: center;">
-                                <p class="post-author" style="margin: 0;">Classes Start :</p>
-                                <p class="post-date" style="margin: 0;">
-                                <time datetime="2022-01-01">&nbsp;&nbsp;&nbsp;{{ $course->start_date }}</time>
+                            <p class="card-text text-justify" style="flex-grow: 1; max-height: 100px; overflow: hidden; text-overflow: ellipsis;">
+                                {{ $course->description }}
+                            </p>
+
+                            <div class="post-meta d-flex justify-content-between align-items-center">
+                                <p class="post-author mb-0">Classes Start:</p>
+                                <p class="post-date mb-0">
+                                    <time datetime="2022-01-01">&nbsp;&nbsp;&nbsp;{{ $course->start_date }}</time>
                                 </p>
                             </div>
                             <br>
                             
-
-                            <a href="{{ route('guest.form-fill-up', ['id' => $course->id]) }}" class="btn btn-primary">
-                                    <i class="feather icon-plus"></i> Enroll
-                                </a>
-                    
+                            <a href="{{ route('guest.form-fill-up', ['id' => $course->id]) }}" class="btn btn-primary mt-auto">
+                                <i class="feather icon-plus"></i> Enroll
+                            </a>
                         </div>
                     </div>
                 </div>
                 @endforeach
-            </div>
+</div>
+
     @endif
 
 </x-app-layout>

@@ -26,6 +26,7 @@ class StoreCoursesRequest extends FormRequest
             'description' => ['sometimes', 'nullable', 'string'],
             'upload' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'slots' => 'required|string|max:10',
+            'batch' => 'required|string',
             'start_date' => ['sometimes', 'date', 'nullable'],
             'end_date' => ['sometimes', 'date', 'nullable'],
         ];

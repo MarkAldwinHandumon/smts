@@ -1,12 +1,13 @@
-<header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
+<header class="navbar pcoded-header navbar-expand-lg navbar-light header-dark" style="background-color: #e59a0d;">
 		
 			
 				<div class="m-header">
 					<a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
 					<a href="#!" class="b-brand">
 						<!-- ========   change your logo hear   ============ -->
-						<img src="assets/images/logo.png" alt="" class="logo">
-						<img src="assets/images/logo-icon.png" alt="" class="logo-thumb">
+						<!-- <img src="assets/images/logo.png" alt="" class="logo">
+						<img src="assets/images/logo-icon.png" alt="" class="logo-thumb"> -->
+						<img class="logo" src="{{ asset('assets/images/tesda.png') }}" alt="User-Profile-Image" style="width: 25%;">
 					</a>
 					<a href="#!" class="mob-toggler">
 						<i class="feather icon-more-vertical"></i>
@@ -93,7 +94,7 @@
 										</a>
 									</div>
 									<ul class="pro-body">
-										<li><a href="{{ route('guest.profile', ['id' => Auth::user()->id ]) }}" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+										<li><a href="{{ route('profile', ['id' => Auth::user()->id ]) }}" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
 										<li>
 											<a href="{{ route('logout') }}" class="dropdown-item"
 											onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

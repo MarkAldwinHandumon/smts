@@ -10,5 +10,5 @@
             <label >Description</label>
             <textarea class="form-control" name="description"  placeholder="Enter Description" rows="3">{{ $requirements->description }}</textarea>
         </div>
-        <button type="submit" class="btn  btn-primary">Sign in</button>
+        <button type="submit" class="btn  btn-primary">Save</button>
     </form>

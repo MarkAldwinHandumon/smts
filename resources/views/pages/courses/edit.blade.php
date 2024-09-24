@@ -30,9 +30,13 @@
                         
 
                             <div class="form-row">
-                                <div class="form-group col-md-8">
+                            <div class="form-group col-md-4">
                                     <label>Course Title</label>
-                                    <input type="text" class="form-control" name="title" value="{{ $course->title }}" placeholder="Course Title">
+                                    <input type="text" class="form-control" value="{{ $course->title }}" name="title" placeholder="Course Title">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Batch</label>
+                                    <input type="text" class="form-control" name="batch"  value="{{ $course->batch }}"  placeholder="Batch">
                                 </div>
                             </div>
 

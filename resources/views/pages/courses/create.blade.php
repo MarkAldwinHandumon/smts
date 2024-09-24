@@ -28,9 +28,13 @@
                             @csrf <!-- Add CSRF token field -->
 
                             <div class="form-row">
-                                <div class="form-group col-md-8">
+                                <div class="form-group col-md-4">
                                     <label>Course Title</label>
                                     <input type="text" class="form-control" name="title" placeholder="Course Title">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Batch</label>
+                                    <input type="text" class="form-control" name="batch" placeholder="Batch">
                                 </div>
                             </div>
 

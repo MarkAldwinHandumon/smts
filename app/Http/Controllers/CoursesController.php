@@ -6,6 +6,7 @@ use App\Models\Courses;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCoursesRequest;
 use App\Http\Requests\UpdateCoursesRequest;
+use Illuminate\Http\Request;
 
 class CoursesController extends Controller
 {
@@ -20,6 +21,14 @@ class CoursesController extends Controller
         return view('pages.courses.index', ['courses' => $courses]);
     }
 
+    public function status(Request $request)
+    {
+        $id = $request->input('id');
+        $status = $request->input('status');
+        $courses = Courses::findOrFail($id);
+        $courses->status = $status;
+        $courses->save();
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -60,6 +69,8 @@ class CoursesController extends Controller
         $course->description = $request->input('description');
         $course->upload = $imagePath; // Save the image path to the database
         $course->slots = $request->input('slots');
+        $course->batch = $request->input('batch');
+        $course->status = 'In Progress';
         $course->start_date = $request->input('start_date');
         $course->end_date = $request->input('end_date');
         $course->save();
@@ -126,6 +137,7 @@ class CoursesController extends Controller
         $course->description = $request->input('description');
         $course->upload = $imagePath; // Save the new image path to the database
         $course->slots = $request->input('slots');
+        $course->batch = $request->input('batch');
         $course->start_date = $request->input('start_date');
         $course->end_date = $request->input('end_date');
         $course->save();

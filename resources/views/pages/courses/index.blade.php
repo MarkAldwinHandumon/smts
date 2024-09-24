@@ -56,8 +56,10 @@
                                     <thead>
                                     <tr>
                                         <th style="width: 25%;">Subject</th>
-                                        <th style="width: 55%;">Description</th>
+                                        <th style="width: 35%;">Description</th>
                                         <th style="width: 10%;">Slots</th>
+                                        <th style="width: 10%;">Batch</th>
+                                        <th style="width: 10%;">Status</th>
                                         <th style="width: 10%;">Action</th>
                                     </tr>
                                     </thead>
@@ -82,12 +84,20 @@
 
 
                                                 <td style="width:10%;">{{ $course->slots }}</td>
-
+                                                <td style="width:10%;">{{ $course->batch }}</td>
+                                                <td style="width:10%;">
+                                                    <select class="form-control select2" name="courses" onchange="change_status({{ $course->id }}, this.value)">
+                                                        <option>Select</option>
+                                                        <option value="In Progress" {{ @$course->status == 'In Progress' ? 'selected' : '' }}>In Progress</option>
+                                                        <option value="Completed"{{ @$course->status == 'Completed' ? 'selected' : '' }}>Completed</option>
+                                                        <option value="Cancelled"{{ @$course->status == 'Cancelled' ? 'selected' : '' }}>Cancelled</option>
+                                                    </select>
+                                                </td>
                                                 <td style="width:10%;">
                                                     <div class="btn-group">
                                                         <button class="btn btn-sm btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
                                                         <div class="dropdown-menu">
-                                                            <a class="action dropdown-item" data-id="{{ $course->id }}" href="javascript:void(0)"><i class="feather icon-eye text-info"></i> View</a>
+                                                            <!-- <a class="action dropdown-item" data-id="{{ $course->id }}" href="javascript:void(0)"><i class="feather icon-eye text-info"></i> View</a> -->
                                                             <a class="edit-action dropdown-item" data-id="{{ $course->id }}" href="javascript:void(0)"><i class="feather icon-edit text-info"></i> Edit</a>
                                                             <a class="delete-action dropdown-item" data-id="{{ $course->id }}" href="javascript:void(0)"><i class="feather icon-trash text-danger"></i> Delete</a>
                                                         </div>
@@ -105,6 +115,7 @@
             </div>
         </div>
         <script>
+            const appUrl = document.querySelector('meta[name="app-url"]').getAttribute('content');
             document.addEventListener('DOMContentLoaded', function () {
 
                 $('#coursesTable').DataTable({
@@ -180,7 +191,25 @@
                         });
                     });
                 });
-
             });
+
+            function change_status(id,status)
+            {
+                $.ajax({
+                    type: "POST",
+                    url:appUrl + '/courses/status',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken
+                    },
+                    data: {
+                            id: id,
+                            status:status
+                            },
+                    success: function(data) {
+                        // $(".intern-profile").show().html(data);
+                    }
+                });
+            }
+
         </script>
 </x-app-layout>

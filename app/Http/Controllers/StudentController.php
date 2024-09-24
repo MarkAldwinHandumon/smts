@@ -27,7 +27,8 @@ class StudentController extends Controller
     public function index()
     {
         $users = Student::with(['user','subject'])->get();
-        return view('pages.student.index',compact('users'));
+        $courses = Courses::all();
+        return view('pages.student.index',compact('users','courses'));
     }
 
     /**

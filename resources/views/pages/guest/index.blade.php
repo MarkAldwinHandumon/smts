@@ -45,7 +45,6 @@
                                 </p>
                             </div>
                             <br>
-                            
 
                             <a href="{{ route('guest.form-fill-up', ['id' => $course->id]) }}" class="btn btn-primary">
                                     <i class="feather icon-plus"></i> Enroll

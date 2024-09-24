@@ -75,8 +75,8 @@ class ScheduleController extends Controller
         $attainments = Atainment::where('user_id', $id)->pluck('education_id')->toArray(); // Only get the education_id of attainments
         $learners = Learner::where('user_id', $id)->pluck('classication_id')->toArray(); // Only get the education_id of attainments
         $types = Type::where('user_id', $id)->pluck('disability_id')->toArray();
-
         $user_causes = UserCause::where('user_id', $id)->pluck('cause_id')->toArray();
+
         return view('pages.guest.edit', compact('educations', 'classifications', 'disablities', 'causes', 'student','address','attainments','learners','types','user_causes'));
 
     }

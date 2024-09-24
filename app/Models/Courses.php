@@ -17,6 +17,8 @@ class Courses extends Model
         'slots',
         'start_date',
         'end_date',
+        'batch',
+        'status'
     ];
 
     // If you need to define the reverse relationship

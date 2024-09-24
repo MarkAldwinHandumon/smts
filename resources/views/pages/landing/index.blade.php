@@ -248,46 +248,35 @@
         <div class="row gy-4">
 
         @foreach($courses as $course)
-          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <article>
-
-              <div class="post-img">
-
+    <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <article>
+            <div class="post-img" style="padding: 10px;">
                 @if($course->upload)
-                <img src="{{ asset($course->upload) }}" alt="{{ $course->title }}" class="img-fluid" style="width: 100%;">
+                    <img src="{{ asset($course->upload) }}" alt="{{ $course->title }}" class="img-fluid" style="width: 100%; object-fit: cover; height: 250px;">
                 @else
-                <img src="{{ asset('assets/images/tesda.png') }}" alt="user image" class="img-fluid" style="width: 100%;">
+                    <img src="{{ asset('assets/images/tesda.png') }}" alt="user image" class="img-fluid" style="width: 100%; object-fit: contain; height: 250px;">
                 @endif
-
-              </div>
-              <h5>{{ $course->title }}</h5><br>
-              <!-- <a href="blog-details.html">{{ $course->description }}</a> -->
-              <p >Slots Left : <strong>  {{ $course->slots }}</strong> </p> 
-
-              <p style="text-align: justify;">
+            </div>
+            <h5>{{ $course->title }}</h5><br>
+            <p>Slots Left : <strong>{{ $course->slots }}</strong></p>
+            <p style="text-align: justify;">
                 {{ $course->description }}
-              </span>  
-
-
-              <div>
+            </p>
+            <div>
                 <div class="post-meta" style="display: flex; justify-content: space-between; align-items: center;">
-                  <p class="post-author" style="margin: 0;">Classes Start :</p>
-                  <p class="post-date" style="margin: 0;">
-                    <time datetime="2022-01-01"> &nbsp;&nbsp;&nbsp;{{ $course->start_date }}</time>
-                  </p>
-
-                  <a href="{{ route('form') }}" style="margin-left: auto; display: flex; align-items: center;">
-                    <span>Enroll Here</span><i class="bi bi-arrow-right" style="margin-left: 5px;"></i>
-                  </a>
-
+                    <p class="post-author" style="margin: 0;">Classes Start :</p>
+                    <p class="post-date" style="margin: 0;">
+                        <time datetime="2022-01-01">&nbsp;&nbsp;&nbsp;{{ $course->start_date }}</time>
+                    </p>
+                    <a href="{{ route('form') }}" style="margin-left: auto; display: flex; align-items: center;">
+                        <span>Enroll Here</span><i class="bi bi-arrow-right" style="margin-left: 5px;"></i>
+                    </a>
                 </div>
-              </div>
+            </div>
+        </article>
+    </div>
+@endforeach
 
-
-
-            </article>
-          </div><!-- End post list item -->
-          @endforeach
 
         </div><!-- End recent posts list -->
       </div>

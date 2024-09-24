@@ -1,4 +1,17 @@
 <x-app-layout>
+
+<style>
+    .form-select {
+    width: auto; /* Adjust width as needed */
+    padding: 5px;
+    border: 1px solid #ccc; /* Example border */
+    border-radius: 4px; /* Example border-radius */
+}
+
+.select-filter {
+    margin-right: 20px; /* Adjust the distance as needed */
+}
+</style>
     <div class="page-header">
         <div class="page-block">
             <div class="row align-items-center">
@@ -22,6 +35,7 @@
                 <div class="card-header">
                     <h5>Student List</h5>
                 </div>
+                
                 <div class="card-body table-border-style">
                     <div class="table-responsive">
                         <table class="table table-hover" id="data-table">
@@ -33,7 +47,7 @@
                                     <th>phone</th>
                                     <th>Scholar Type</th>
                                     <th>Course</th>
-                                    <th>Date Joined</th>
+                                    <th>Batch</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -45,10 +59,10 @@
                                     <td>{{ $user->user->email }}</td>
                                     <td>{{ $user->user->phone }}</td>
                                     <td>{{ $user->user->type_scholar }}</td>
-                                    <td>{{ $user->subject->title }}</td>
-                                    <td>{{ @date('m/d/Y g:i A', strtotime($user->created_at)) }}</td>
+                                    <td>{{ @$user->subject->title }}</td>
+                                    <td>{{ @$user->subject->batch }}</td>
                                     <td>
-                                    <a class="profile-action text-info" href="{{ route('guest.profile', ['id' => $user->id]) }}" title="Profile">
+                                    <a class="profile-action text-info" href="{{ route('guest.profile', ['id' => $user->user->id]) }}" title="Profile">
                                         <i class="feather icon-user"></i> 
                                     </a>
 
@@ -62,6 +76,7 @@
                         </table>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -84,12 +99,40 @@
 <script>
     const appUrl = document.querySelector('meta[name="app-url"]').getAttribute('content');
     $(document).ready(function() {
-        $('#data-table').DataTable({
-            // Optional configurations can be added here
-            "paging": true,
-            "searching": true,
-            "ordering": false
-        });
+
+    //    var table =  $("#data-table").DataTable({
+    //         // Optional configurations can be added here
+    //         "paging": true,
+    //         "searching": true,
+    //         "ordering": false
+    //     });
+
+    var table = $("#data-table").DataTable({
+        "paging": true,
+        "searching": true,
+        "ordering": false,
+    });
+
+    setTimeout(function() {
+
+            // Create the Course dropdown
+            var courseSelect = $('<select id="courseFilter" class="form-select select-filter"><option value="">All Courses</option></select>')
+                .prependTo('#data-table_filter') // Position before search input
+                .on('change', function() {
+                    var selectedCourse = $(this).val();
+                    table.column(5).search(selectedCourse).draw(); // Filter by Course
+                });
+
+            // Populate Course dropdown with data from PHP
+            var courses = @json($courses);
+            $.each(courses, function(index, course) {
+                courseSelect.append('<option value="' + course.title + '">' + course.title + ' Batch ' + course.batch + '</option>'); // Adjust according to your Course model's attribute
+            });
+
+            
+    }, 100);
+
+
 
         $('.delete-action').on('click', function() {
             var id = $(this).data('id');
