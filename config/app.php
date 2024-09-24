@@ -53,7 +53,7 @@ return [
     */
 
     // 'url' => env('APP_URL', 'http://localhost'),
-    'url' => env('APP_URL', 'http://sms.test'),
+    'url' => env('APP_URL', 'http://smts.test'),
 
     /*
     |--------------------------------------------------------------------------
