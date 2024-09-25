@@ -60,7 +60,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="box-generator card borderless" >
                         <div class="card-body">
-                            <h4 class="text-center f-w-400">Sign In</h4>
+                            <h4 class="text-center f-w-400" style="color:orange">Sign In</h4>
                             <hr>
 
                             <form method="POST" action="{{ route('login') }}">
@@ -83,10 +83,10 @@
                             </form>
 
                             <hr>
-                            <p class="text-center mb-2">Forgot password? <a href="{{ route('password.request') }}"
-                                    class="f-w-400">Reset</a></p>
-                            <p class="text-center mb-2">Don't have an account? <a href="{{ route('form') }}"
-                                    class="f-w-400">Signup</a></p>
+                            <p class="text-center mb-2" style="color:orange">Forgot password? <a href="{{ route('password.request') }}"
+                                    class="f-w-400" style="color:orange">Reset</a></p>
+                            <p class="text-center mb-2" style="color:orange">Don't have an account? <a href="{{ route('form') }}"
+                                    class="f-w-400" style="color:orange">Signup</a></p>
                         </div>
                     </div>
                 </div>

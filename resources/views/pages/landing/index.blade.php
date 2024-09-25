@@ -258,7 +258,7 @@
                 @endif
             </div>
             <h5>{{ $course->title }}</h5><br>
-            <p>Slots Left : <strong>{{ $course->slots }}</strong></p>
+            <p style="color:red;">Slots Left : <strong>{{ $course->slots }}</strong></p>
             <p style="text-align: justify;">
                 {{ $course->description }}
             </p>
