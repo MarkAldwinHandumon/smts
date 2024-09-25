@@ -37,6 +37,11 @@ class Student extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function certificate(): BelongsTo
+    {
+        return $this->belongsTo(Certificate::class, 'user_id', 'user_id');
+    }
     
     public function subject(): BelongsTo
     {

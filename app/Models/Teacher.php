@@ -21,6 +21,7 @@ class Teacher extends Model
         'contact',
         'address',
         'zip_code',
+        'upload',
     ];
 
     public function user()

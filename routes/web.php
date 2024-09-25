@@ -11,6 +11,9 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UploadController;
 use App\Models\Courses;
+use App\Models\Student;
+use App\Models\Teacher;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -20,8 +23,14 @@ Route::get('/', [PageController::class, 'index'])->name('index');
 Route::get('/form', [PageController::class, 'form'])->name('form');
 
 Route::get('/dashboard', function () {
-    $courses = Courses::all();
-    return view('dashboard',compact('courses'));
+    $courses = Courses::withCount('students')->get();
+    $coursesCount = Courses::count();
+    $teachersCount = User::where('type', 'Teacher')->count();
+    $studentsCount = User::where('type', 'Student')->count();
+    $teachers = User::has('teacherDetails')
+    ->with('teacherDetails.course') // Eager load the course through teacherDetails
+    ->get();
+    return view('dashboard',compact('teachersCount','coursesCount','studentsCount','courses','teachers'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -103,6 +112,9 @@ Route::middleware('auth')->group(function () {
 
     Route::name('certificate.')->prefix('/certificate')->group(function () {
         Route::get('/', [CertificateController::class, 'index'])->name('index');
+        Route::post('/create', [CertificateController::class, 'store'])->name('create');
+        Route::get('/documents/{certificate}/download', [CertificateController::class, 'download'])->name('documents.download');
+        Route::post('/delete', [CertificateController::class, 'destroy'])->name('delete');
     });
 });
 

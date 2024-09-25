@@ -70,7 +70,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label>Password</label>
+                                    <label>Password</label> <span style="color:red;">( not required to update )</span>
                                     <input type="password" class="form-control" name="password"  placeholder="Password">
                                 </div>
                             </div>

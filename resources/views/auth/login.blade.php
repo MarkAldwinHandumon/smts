@@ -15,15 +15,50 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-</head>
 
+    <!-- Add custom CSS for background animation -->
+    <style>
+        .auth-wrapper {
+            background-position: center;
+            /* animation: slide 8s 2s infinite; */
+            animation: slide 10s infinite ease-in-out; /* Slower animation */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .box-generator {
+            box-shadow: 3px 1px 90px 41px rgba(212,173,72,0.75);-webkit-box-shadow: 3px 1px 90px 41px rgba(212,173,72,0.75);-moz-box-shadow: 3px 1px 90px 41px rgba(212,173,72,0.75);
+            background-color: transparent;
+        }
+
+        @keyframes slide {
+            0% {
+                background-image: url('{{ asset('assets/images/pic-1.jpg') }}');
+            }
+            25% {
+                background-image: url('{{ asset('assets/images/pic-3.jpg') }}');
+            }
+            50% {
+                background-image: url('{{ asset('assets/images/pic-4.jpg') }}');
+            }
+            75% {
+                background-image: url('{{ asset('assets/images/pic-5.jpg') }}');
+            }
+            100% {
+                background-image: url('{{ asset('assets/images/pic-6.jpg') }}');
+            }
+        }
+    </style>
+</head>
 <body>
     <!-- [ auth-signup ] start -->
     <div class="auth-wrapper d-flex align-items-center justify-content-center min-vh-100">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6 col-sm-8">
-                    <div class="card borderless">
+                    <div class="box-generator card borderless" >
                         <div class="card-body">
                             <h4 class="text-center f-w-400">Sign In</h4>
                             <hr>
@@ -60,14 +95,9 @@
     </div>
     <!-- [ auth-signup ] end -->
 
-    <!-- Required Js -->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
-
-	<script src="assets/js/vendor-all.min.js"></script>
-<script src="assets/js/plugins/bootstrap.min.js"></script>
-<script src="assets/js/pcoded.min.js"></script>
+    <script src="assets/js/vendor-all.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+    <script src="assets/js/pcoded.min.js"></script>
 
 </body>
 

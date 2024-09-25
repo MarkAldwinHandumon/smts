@@ -10,6 +10,7 @@ use App\Models\Disability;
 use App\Models\Education;
 use App\Models\Learner;
 use App\Models\Student;
+use App\Models\Teacher;
 use App\Models\Type;
 use App\Models\UserCause;
 use Illuminate\Http\Request;
@@ -21,7 +22,12 @@ class FormController extends Controller
 {
     public function index(Request $request)
     {
-        $students = Student::with(['user','subject'])->get();
+        if(auth()->user()->type ==  'Admin'){
+            $students = Student::with(['user','subject'])->get();
+        }else{
+            $teacher = Teacher::where('user_id',auth()->user()->id)->first();
+            $students = Student::with(['user','subject'])->where('course_id',$teacher->subject)->get();
+        }
         return view('pages.form.index',compact('students'));
     }
 

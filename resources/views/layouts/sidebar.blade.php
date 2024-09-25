@@ -60,17 +60,23 @@
 				<li class="nav-item pcoded-menu-caption">
 					<label>Navigation</label>
 				</li>
+
 				<li class="nav-item">
 					<a href="{{ route('dashboard') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
 				</li>
 
-
-				<li class="nav-item pcoded-hasmenu">
-					<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Student's</span></a>
-					<ul class="pcoded-submenu" style="background-color: orange;">
-						<li><a href="{{ route('student.index') }}" >List</a></li>
-					</ul>
+				<li class="nav-item">
+					<a href="{{ route('requirements.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Requirements</span></a>
 				</li>
+
+				<li class="nav-item">
+					<a href="{{ route('tesda.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Forms</span></a>
+				</li>
+
+				<li class="nav-item">
+					<a href="{{ route('student.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Student's</span></a>
+				</li>
+
 			</ul>
 			@elseif(Auth::user()->type == 'Guest')
 			<ul class="nav pcoded-inner-navbar ">
@@ -107,7 +113,7 @@
 				</li>
 
 				<li class="nav-item">
-					<a href="{{ route('guest.requirements') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Certificates</span></a>
+					<a href="{{ route('certificate.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Certificates</span></a>
 				</li>
 
 			</ul>

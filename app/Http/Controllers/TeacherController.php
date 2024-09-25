@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTeacherRequest;
 use App\Http\Requests\UpdateTeacherRequest;
 use App\Models\Courses;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -116,7 +117,11 @@ class TeacherController extends Controller
         ->with('teacherDetails.course') // Eager load teacherDetails and course
         ->findOrFail($id); // Find the user by ID or fail if not found
         $courses = Courses::all();
-        return view('pages.teacher.profile', compact('user','courses'));
+
+        $teacher = Teacher::where('user_id',$id)->first();
+        $students = Student::with(['user','subject'])->where('course_id',$teacher->subject)->get();
+        
+        return view('pages.teacher.profile', compact('user','courses','students'));
     }
 
     
@@ -131,20 +136,21 @@ class TeacherController extends Controller
             'middle_name' => ['nullable', 'string', 'max:255'],
             'last_name' => ['sometimes', 'string', 'max:255'],
             'email' => ['sometimes', 'string', 'email', 'max:255', 'unique:users,email,' . $id],
-            'password' => 'sometimes|string|min:8', // Add password validation
+            'password' => 'nullable|string|min:8', // Add password validation
         ]);
 
             // Find the user by ID
         $user = User::findOrFail($id);
 
         // Update user details, except password
-        $userData = $validatedData;
-        if (isset($userData['password'])) {
-            $userData['password'] = bcrypt($userData['password']);
+        if (isset($validatedData['password']) && !empty($validatedData['password'])) {
+            $validatedData['password'] = bcrypt($validatedData['password']);
         } else {
-            unset($userData['password']);
+            unset($validatedData['password']); // Exclude password from update if not present
         }
-        $user->update($userData);
+        
+        // Update user details
+        $user->update($validatedData);
 
         // Ensure the teacher record is associated with the correct user
         $teacher = Teacher::where('user_id', $id)->firstOrFail();

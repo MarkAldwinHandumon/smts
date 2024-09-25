@@ -12,6 +12,7 @@ use App\Models\CauseData;
 use App\Models\Courses;
 use App\Models\Learner;
 use App\Models\Requirements;
+use App\Models\Teacher;
 use App\Models\Type;
 use App\Models\Upload;
 use App\Models\User;
@@ -26,8 +27,16 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $users = Student::with(['user','subject'])->get();
+        // $users = Student::with(['user','subject'])->get();
         $courses = Courses::all();
+
+        if(auth()->user()->type ==  'Admin'){
+            $users = Student::with(['user','subject'])->get();
+        }else{
+            $teacher = Teacher::where('user_id',auth()->user()->id)->first();
+            $users = Student::with(['user','subject'])->where('course_id',$teacher->subject)->get();
+        }
+
         return view('pages.student.index',compact('users','courses'));
     }
 

@@ -137,7 +137,7 @@
 
 
         $('.delete-action').on('click', function() {
-    // Get the data-id of the clicked item
+            // Get the data-id of the clicked item
             var id = $(this).data('id');
 
             Swal.fire({

@@ -100,13 +100,6 @@
     const appUrl = document.querySelector('meta[name="app-url"]').getAttribute('content');
     $(document).ready(function() {
 
-    //    var table =  $("#data-table").DataTable({
-    //         // Optional configurations can be added here
-    //         "paging": true,
-    //         "searching": true,
-    //         "ordering": false
-    //     });
-
     var table = $("#data-table").DataTable({
         "paging": true,
         "searching": true,

@@ -9,45 +9,46 @@
                     <div class="flex-none pt-3">
                         <div class="md:h-[186px] md:w-[186px] h-[140px] w-[140px] md:ml-0 md:mr-0 ml-auto mr-auto md:mb-0 mb-4 rounded-full ring-4
                                 ring-slate-100 relative">
-                          <img src="{{ asset($user->teacherDetails->upload) }}" alt="" class="w-full h-full object-cover rounded-full">
+                          <center><img src="{{ asset($user->teacherDetails->upload) }}" alt="" class="w-full h-full object-cover rounded-full"></center><br>
                             <center class="pt-2">Trainer's Number <br>{{ $user->teacherDetails->accreditation_number ?? 'N/A' }}</center>
                         </div>
                       </div>
                       <br>
                     <hr>
 
-                      <div class="flex flex-col gap-2">
-                        <div class="flex items-start justify-between pl-3">
-                            Teacher's Name :
-                            <span class="text-gray-600 text-sm pr-3">{{ ucwords(trim($user->first_name . ' ' . $user->middle_name . ' ' . $user->last_name)) }}</span>
-                        </div>
+                    <table class="table-auto w-full border-collapse p-3">
+                        <tbody>
+                            <tr>
+                                <td class="pl-3 py-2 font-semibold">Teacher's Name :</td>
+                                <td class="text-gray-600 text-sm pr-3">{{ ucwords(trim($user->first_name . ' ' . $user->middle_name . ' ' . $user->last_name)) }}</td>
+                            </tr>
 
-                        <div class="flex items-start justify-between pl-3">
-                            Email :
-                            <span class="text-gray-600 text-sm pr-3">{{ $user->email ?? 'N/A' }}</span>
-                        </div>
+                            <tr>
+                                <td class="pl-3 py-2 font-semibold">Email :</td>
+                                <td class="text-gray-600 text-sm pr-3">{{ $user->email ?? 'N/A' }}</td>
+                            </tr>
 
-                        <div class="flex items-start justify-between pl-3">
-                            Phone :
-                            <span class="text-gray-600 text-sm pr-3">{{ $user->teacherDetails->contact ?? 'N/A' }}</span>
-                        </div>
+                            <tr>
+                                <td class="pl-3 py-2 font-semibold">Phone :</td>
+                                <td class="text-gray-600 text-sm pr-3">{{ $user->teacherDetails->contact ?? 'N/A' }}</td>
+                            </tr>
 
-                        <div class="flex items-start justify-between pl-3">
-                            Address :
-                            <span class="text-gray-600 text-sm pr-3">{{ $user->teacherDetails->address ?? 'N/A' }}</span>
-                        </div>
-                        
-                        <div class="flex items-start justify-between pl-3">
-                            Address :
-                            <span class="text-gray-600 text-sm pr-3">{{ $user->teacherDetails->course->title ?? 'N/A' }}</span>
-                        </div>
+                            <tr>
+                                <td class="pl-3 py-2 font-semibold">Address :</td>
+                                <td class="text-gray-600 text-sm pr-3">{{ $user->teacherDetails->address ?? 'N/A' }}</td>
+                            </tr>
 
-                        <div class="flex items-start justify-between pl-3">
-                            Gender :
-                            <span class="text-gray-600 text-sm pr-3">{{ $user->teacherDetails->gender ?? 'N/A' }}</span>
-                        </div>
+                            <tr>
+                                <td class="pl-3 py-2 font-semibold">Course :</td>
+                                <td class="text-gray-600 text-sm pr-3">{{ $user->teacherDetails->course->title ?? 'N/A' }}</td>
+                            </tr>
 
-                      </div>
+                            <tr>
+                                <td class="pl-3 py-2 font-semibold">Gender :</td>
+                                <td class="text-gray-600 text-sm pr-3">{{ $user->teacherDetails->gender ?? 'N/A' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -58,36 +59,32 @@
                     </div>
                     <div class="card-body table-border-style">
                         <div class="table-responsive">
-                            <table class="table table-inverse">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <table class="table table-hover" id="data-table">
+                            <thead>
+                                <tr>
+                                <th>#</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>phone</th>
+                                    <th>Scholar Type</th>
+                                    <th>Course</th>
+                                    <th>Batch</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($students as $student)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ ucwords($student->user->first_name) }}</td>
+                                    <td>{{ $student->user->email }}</td>
+                                    <td>{{ $student->user->phone }}</td>
+                                    <td>{{ $student->user->type_scholar }}</td>
+                                    <td>{{ @$student->subject->title }}</td>
+                                    <td>{{ @$student->subject->batch }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                         </div>
                     </div>
                 </div>
@@ -95,4 +92,16 @@
            
         </div>
     </div>
-</x-app-layout>
+
+</x-app-layout>    
+<script>
+    $(document).ready(function() {
+
+        var table = $("#data-table").DataTable({
+            "paging": true,
+            "searching": true,
+            "ordering": false,
+        });
+        
+    }); 
+</script>

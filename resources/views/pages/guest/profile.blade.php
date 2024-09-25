@@ -22,57 +22,23 @@
                         <table class="table table-nowrap mb-0">
                             <tbody>
                                 <tr>
-                                    <th scope="row">Full Name :</th>
-                                    <td>{{ ucwords(@$user->first_name . ' ' .@$user->middle_name. ' ' .@$user->last_name ) }}</td>
+                                    <th scope="row">First Name :</th>
+                                    <td>{{ ucwords(@$user->first_name ) }}</td>
                                 </tr>
+
                                 <tr>
-                                    <th scope="row">Mobile :</th>
-                                    <td>{{ @$user->phone }}</td>
+                                    <th scope="row">Middle Name :</th>
+                                    <td>{{ ucwords(@$user->middle_name ) }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Last Name :</th>
+                                    <td>{{ ucwords(@$user->last_name ) }}</td>
                                 </tr>
 
                                 <tr>
                                     <th scope="row">E-mail :</th>
                                     <td>{{ @$user->email }}</td>
-                                </tr>
-                    
-                                <tr>
-                                    <th scope="row">Birth Date :</th>
-                                    <td>{{ @$user->student->bmonth.' '.@$user->student->bday.' '.@$user->student->byear.' ' }}</td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">Age :</th>
-                                    <td>{{ @$user->student->age }}</td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">Gender :</th>
-                                    <td>{{ @$user->student->sex }}</td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">Status :</th>
-                                    <td>{{ @$user->student->status }}</td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">Address :</th>
-                                    <td>{{ @$user->student->bcity.' '.@$user->student->bprovince.' '.@$user->student->bregion.' ' }}</td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">Scholar Type :</th>
-                                    <td>{{ @$user->student->type_scholar }}</td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">Date Joined:</th>
-                                    <td>{{ @date('m/d/Y', strtotime($user->created_at)) }}</td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">User Type</th>
-                                    <td>{{ @$user->type }}</td>
                                 </tr>
                             </tbody>
                         </table>

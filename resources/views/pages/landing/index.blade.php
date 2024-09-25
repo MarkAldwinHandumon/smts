@@ -252,9 +252,9 @@
         <article>
             <div class="post-img" style="padding: 10px;">
                 @if($course->upload)
-                    <img src="{{ asset($course->upload) }}" alt="{{ $course->title }}" class="img-fluid" style="width: 100%; object-fit: cover; height: 250px;">
+                    <img src="{{ asset($course->upload) }}" alt="{{ $course->title }}" class="img-fluid" style="width: 100%;height: 100%; object-fit: contain; background-size: contain; background-position: center; background-repeat: no-repeat;">
                 @else
-                    <img src="{{ asset('assets/images/tesda.png') }}" alt="user image" class="img-fluid" style="width: 100%; object-fit: contain; height: 250px;">
+                    <img src="{{ asset('assets/images/tesda.png') }}" alt="user image" class="img-fluid" style="width: 100%;height: 100%; object-fit: contain;background-size: cover; background-position: center; background-repeat: no-repeat;">
                 @endif
             </div>
             <h5>{{ $course->title }}</h5><br>

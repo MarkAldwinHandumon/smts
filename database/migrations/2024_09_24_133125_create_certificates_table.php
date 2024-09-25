@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id')->nullable()->default(null);
+            $table->text('document_name')->nullable()->default(null);
+            $table->text('document_path')->nullable()->default(null);
+            $table->string('document_size')->nullable()->default(null);
+            $table->string('document_extension')->nullable()->default(null);
+            $table->string('description')->nullable()->default(null);
             $table->timestamps();
         });
     }

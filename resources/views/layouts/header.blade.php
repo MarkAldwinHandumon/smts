@@ -16,7 +16,7 @@
 				<div class="collapse navbar-collapse">
 			
 				<ul class="navbar-nav ml-auto">
-						<li>
+						<!-- <li>
 							<div class="dropdown">
 								<a class="dropdown-toggle" href="#" data-toggle="dropdown">
 									<i class="icon feather icon-bell"></i>
@@ -79,20 +79,25 @@
 									</div>
 								</div>
 							</div>
-						</li>
+						</li> -->
 						<li>
 							<div class="dropdown drp-user">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 									<i class="feather icon-user"></i>
 								</a>
 								<div class="dropdown-menu dropdown-menu-right profile-notification">
-									<div class="pro-head">
-										<img src="{{ asset('assets/images/tesda.png') }}" class="img-radius" alt="User-Profile-Image">
-										<span>{{ Auth::user()->first_name }}</span>
-										<a href="auth-signin.html" class="dud-logout" title="Logout">
-											<i class="feather icon-log-out"></i>
-										</a>
+
+								<div class="pro-head">
+									<img src="{{ asset('assets/images/tesda.png') }}" class="img-radius" alt="User-Profile-Image">
+									<div>
+										<span>{{ Auth::user()->first_name }}</span><br>
+										<span class="text-gray-600 text-sm">( {{ Auth::user()->type }} )</span> <!-- Moved the user type here with additional styling -->
 									</div>
+									<a href="auth-signin.html" class="dud-logout" title="Logout">
+										<i class="feather icon-log-out"></i>
+									</a>
+								</div>
+
 									<ul class="pro-body">
 										<li><a href="{{ route('profile', ['id' => Auth::user()->id ]) }}" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
 										<li>
