@@ -69,7 +69,7 @@
         <!-- Slide 1 -->
         <div class="carousel-item active">
           <div class="carousel-container">
-            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Selecao</span></h2>
+            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>ST. Martha Skills Training & Assessment Center Inc.</span></h2>
             <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
             <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
           </div>
@@ -78,7 +78,7 @@
         <!-- Slide 2 -->
         <div class="carousel-item">
           <div class="carousel-container">
-            <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolr</h2>
+            <h2 class="animate__animated animate__fadeInDown">About St. Martha</h2>
             <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
             <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
           </div>
@@ -87,7 +87,7 @@
         <!-- Slide 3 -->
         <div class="carousel-item">
           <div class="carousel-container">
-            <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
+            <h2 class="animate__animated animate__fadeInDown">Biggest tesda training institution in Bohol</h2>
             <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
             <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
           </div>
@@ -135,13 +135,12 @@
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              St. Martha Skills Training and Assesment Center,Inc. as a guiding force that produces Filipino workforce with global competence and positive work value
             </p>
             <ul>
-              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Flexible Blended Learning.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>After Work Class Training.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Distance Learning Training.</span></li>
             </ul>
           </div>
 
@@ -182,20 +181,19 @@
           <div class="tab-pane fade active show" id="features-tab-3">
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Voluptatibus commodi ut accusamus ea repudiandae ut autem dolor ut assumenda</h3>
+                <h3>St. Martha's Workforce</h3>
                 <p>
-                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                  culpa qui officia deserunt mollit anim id est laborum
+                  Within our Training Center, a collective of seasoned professionals comprises Registered Nurses,
+                  Lawyers, Licensed Physical Therapist, Registered Pharmacist, and Licensed Professional Teachers.
                 </p>
                 <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Start by completing the theoretical aspect.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Step-by-Step Mastery into the world of Caregiving.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Ensure compliance with all the caregiving skills demonstrations</span></li>
                 </ul>
                 <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.
+                  Once you've finished the theory lessons and return demontrations.Complete your OJT duties. Also, secure certifications by 
+                  passing the TESDA National Competency Assessments. Congratulations on your Accomplishment!
                 </p>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
@@ -208,15 +206,20 @@
           <div class="tab-pane fade" id="features-tab-4">
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3>Omnis fugiat ea explicabo sunt dolorum asperiores sequi inventore rerum</h3>
+                <h3>The center strives to provide par excellent education 
+                </h3>
                 <p>
-                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                  culpa qui officia deserunt mollit anim id est laborum
+                The center is committed to delivering world-class education and training, ensuring that 
+                our caregivers and healthcare services graduates are equipped with the skills, knowledge,
+                 and professionalism needed to thrive in the global healthcare landscape. By offering 
+                 cutting-edge training programs, we aim to not only meet but exceed industry standards, 
+                 cultivating a workforce that is both technically proficient and compassionate in providing 
+                 patient care.
                 </p>
                 <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.
+                Our institution takes pride in fostering an environment of excellence, where students and 
+                trainees receive personalized guidance from experienced professionals, benefiting from
+                 both theoretical education and hands-on practical experience.
                 </p>
                 <ul>
                   <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
@@ -501,7 +504,7 @@
             <div class="team-member">
               <div class="member-img">
 
-                <img src="{{ asset('assets2/img/team/team-1.jpg') }}" class="img-fluid" alt="">
+                <img src="{{ asset('assets2/img/team/team-5.jpg') }}" class="img-fluid" alt="">
                 
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -511,8 +514,8 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
+                <h4>Dr. Nina Chatto Lasala</h4>
+                <span>School President</span>
               </div>
             </div>
           </div><!-- End Team Member -->
@@ -520,7 +523,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member">
               <div class="member-img">
-                <img src="{{ asset('assets2/img/team/team-2.jpg') }}" class="img-fluid" alt="">
+                <img src="{{ asset('assets2/img/team/team-6.jpg') }}" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -538,7 +541,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member">
               <div class="member-img">
-                <img src="{{ asset('assets2/img/team/team-3.jpg') }}" class="img-fluid" alt="">
+                <img src="{{ asset('assets2/img/team/team-6.jpg') }}" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -556,7 +559,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
             <div class="team-member">
               <div class="member-img">
-                <img src="{{ asset('assets2/img/team/team-4.jpg') }}" class="img-fluid" alt="">
+                <img src="{{ asset('assets2/img/team/team-7.jpg') }}" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -582,8 +585,8 @@
 
   <footer id="footer" class="footer dark-background">
     <div class="container">
-      <h3 class="sitename">Selecao</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <h3 class="sitename">St. Martha Skills Training and Assessment Center Inc.</h3>
+      <p>Compassionate caregivers all over the world.</p>
       <div class="social-links d-flex justify-content-center">
         <a href=""><i class="bi bi-twitter-x"></i></a>
         <a href=""><i class="bi bi-facebook"></i></a>
