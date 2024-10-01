@@ -17,10 +17,12 @@ class Courses extends Model
         'description',
         'image_path',
         'slots',
+        'remaining',
         'start_date',
         'end_date',
         'batch',
-        'status'
+        'status',
+        'scholar_type'
     ];
 
     // If you need to define the reverse relationship

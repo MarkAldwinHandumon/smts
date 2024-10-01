@@ -4,6 +4,21 @@
 <script src="{{ asset('assets/js/plugins/sweetalert2.js') }}"></script>
 <script src="{{ asset('assets/js/plugins/axios.min.js') }}"></script>
 <script src="{{ asset('assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+
+
+
+<script src="{{ asset('assets/js/plugins/axios.min.js') }}"></script>
+
+<!-- <script src="{{ asset('assets/jquery.min.js') }}"></script> -->
+<script src="{{ asset('assets/jquery-ui.min.js') }}"></script>
+<script src="{{ asset('assets/jquery.signature.js') }}"></script>
+<script src="{{ asset('assets/jquery.ui.touch-punch.js') }}"></script>
+<script src="{{ asset('assets/jquery.ui.touch-punch.min.js') }}"></script>
+
+
+
+
 <script>
         const csrfToken = $('meta[name="csrf-token"]').attr('content');
 </script>

@@ -96,7 +96,7 @@
 </style>
 <div id="error-messages"></div>
 <div id="success-message" style="display: none"></div>
-<form id="guestForm" action="{{ route('student.update', $student->id) }}" method="POST">
+<form id="guestForm" action="{{ route('student.update', $student->id) }}" method="POST" style="background-color:white">
     @csrf
     @method('PUT')
     <div class="pcoded-content" style="padding-left: 10%;padding-right: 10%;">
@@ -161,7 +161,7 @@
             </div>
         </div>
 
-        <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
+        <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
             <strong><h4 style="color: blue; margin: 0;">1. Web-Based Information System Auto Generated</h4></strong>
         </div>
 
@@ -219,7 +219,7 @@
     </div>
 
         
-    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
+    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
         <strong><h4 style="color: blue; margin: 0;">2. Manpower Profile</h4></strong>
     </div>
 
@@ -301,7 +301,7 @@
         </div>
     </div>
 
-    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
+    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
         <strong><h4 style="color: blue; margin: 0;"> 3. Personal Information</h4></strong>
     </div>
 
@@ -473,7 +473,7 @@
     </div>
 
     
-    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
+    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
         <strong><h4 style="color: blue; margin: 0;"> 4. Learner/Trainee/Student (Clients)    Classification:</h4></strong>
     </div>
 
@@ -509,7 +509,7 @@
         </div>
     </div>
 
-    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
+    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
         <strong><h4 style="color: blue; margin: 0;"> 5. Type of Disability (for Persons with Disability Only):</h4></strong>
     </div>
 
@@ -539,7 +539,7 @@
         </div>
     </div>
 
-    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
+    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
         <strong><h4 style="color: blue; margin: 0;"> 6. Causes of Disability (for Persons with Disability Only):</h4></strong>
     </div>
 
@@ -605,19 +605,19 @@
         </div>
     </div>
 
-    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
+    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
         <strong><h4 style="color: blue; margin: 0;"> 8. Name of Course/Qualification <input type="text" value="{{ $student->qualification }}" name="qualification" style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
-    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
+    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
         <strong><h4 style="color: blue; margin: 0;"> 9. If Scholar, What Type of Scholarship Package (TWSP, PESDA, STEP)? <input name="type_scholar" value="{{ $student->type_scholar }}" type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
-    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
+    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
         <strong><h4 style="color: blue; margin: 0;"> 10. Privacy Disclaimer <input name="disclaimer" value="{{ $student->disclaimer }}" type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
-    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
+    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
         <span>I hereby allow TESDA to use/post my contact details, name, email, cellphone/landline nos. and other information I provided which may be used for processing of my scholarship application, for employment opportunities and other purposes.</span>
             
             <div class="col-12 col-md-3 pl-md-4" >
@@ -635,11 +635,11 @@
             </div>
     </div>
 
-    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
+    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
     <strong><h4 style="color: blue; margin: 0;"> 11. Applicant’s Signature <input name="disclaimer" type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
-    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
+    <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
         <br>
         <div class="header-text" style="font-size:large;">
             This is to certify that the information stated above is true and correct.
@@ -648,12 +648,14 @@
 
         <div class="container">
             <div class="signature-box">
-                <div class="signature-line"></div>
+                <!-- <div class="signature-line"></div> -->
+                <img src="{{ asset('uploads/profile/' . $student->signature) }}" >
+
                 <label style="font-size: large;">APPLICANT’S SIGNATURE OVER PRINTED NAME</label>
             </div>
 
             <div class="date-box">
-            <div class="director-line"></div>
+            <div class="director-line" style="height:100px;width:380px;"></div>
                 <label style="font-size: large;">DATE ACCOMPLISHED</label>
             </div>
 
@@ -698,10 +700,14 @@
         @if(Auth::user()->type == 'Admin')
 
      
-
+        @if($student->course_status == 'approved')
+        
+        @else
         <a href="javascript:void(0)" onclick="approved({{ $student->id }})" class="btn btn-success float-right mr-2">
             Approved
         </a>
+        @endif
+    
 
         <a href="javascript:void(0)"  onclick="reject({{ $student->id }})" class="btn btn-danger float-right mr-2">
             Reject

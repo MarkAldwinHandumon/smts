@@ -48,6 +48,7 @@
                                     <th>Scholar Type</th>
                                     <th>Course</th>
                                     <th>Batch</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -61,12 +62,13 @@
                                     <td>{{ $user->user->type_scholar }}</td>
                                     <td>{{ @$user->subject->title }}</td>
                                     <td>{{ @$user->subject->batch }}</td>
+                                    <td>{{ @$user->subject->status }}</td>
                                     <td>
                                     <a class="profile-action text-info" href="{{ route('guest.profile', ['id' => $user->user->id]) }}" title="Profile">
                                         <i class="feather icon-user"></i> 
                                     </a>
 
-                                        <a class="delete-action text-danger" data-id="{{ $user->id }}" href="javascript:void(0)"  title="Delete">
+                                        <a class="delete-action text-danger" data-id="{{ $user->user->id }}" href="javascript:void(0)"  title="Delete">
                                             <i class="feather icon-trash"></i> 
                                         </a>
                                     </td>

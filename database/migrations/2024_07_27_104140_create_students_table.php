@@ -35,6 +35,7 @@ return new class extends Migration
             $table->string('course_id')->nullable()->default(null);
             $table->string('course_status')->nullable()->default(null);
             $table->string('notes')->nullable()->default(null);
+            $table->string('signature')->nullable()->default(null);
             $table->timestamps();
         });
     }

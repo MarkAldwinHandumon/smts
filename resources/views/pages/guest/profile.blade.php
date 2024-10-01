@@ -45,12 +45,12 @@
                         <div class="d-flex justify-content-between align-items-center mb-4">
 
 
-                            @if(@$user->type == 'Guest')
+                            <!-- @if(@$user->type == 'Guest')
                                 <h6 style="color:red">Activated only when <br> Tesda Form was submitted</h6>
                                 <button  class="btn btn-secondary float-right" type="button"  onclick="convert_data({{ $user->id }})">Convert</button>
                             @else
                            
-                            @endif
+                            @endif -->
 
 
                         </div>

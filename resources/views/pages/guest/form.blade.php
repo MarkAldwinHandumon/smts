@@ -1,5 +1,14 @@
 <x-app-layout>
 <style>
+    .kbw-signature {
+        display: inline-block;
+        border: 1px solid #a0a0a0;
+        -ms-touch-action: none;
+    }
+    .kbw-signature-disabled {
+    	opacity: 0.35;
+    }
+
     .uli-box {
         width: 35px;
         text-align: center;
@@ -371,25 +380,25 @@
             <p style="font-weight:bold;font-size:large">3.4 Birthdate</span>
             </div>
             <div class="col p-1">
-                <input type="text" class="form-control" name="bmonth" style="border: solid 1px black;">
+                <input type="text" class="form-control" name="bmonth" placeholder="G.E January" style="border: solid 1px black;">
                 <label class="d-flex justify-content-center align-items-center font-weight-bold text-center">
                 Month of Birth
                 </label>
             </div>
             <div class="col p-1">
-                <input type="text" class="form-control" name="bday" style="border: solid 1px black;">
+                <input type="text" class="form-control" name="bday" placeholder="G.E 28" style="border: solid 1px black;">
                 <label class="d-flex justify-content-center align-items-center font-weight-bold text-center">
                 Day of Birth
                 </label>
             </div>
             <div class="col p-1">
-                <input type="text" class="form-control" name="byear" style="border: solid 1px black;">
+                <input type="text" class="form-control" name="byear" placeholder="G.E 1995" style="border: solid 1px black;">
                 <label class="d-flex justify-content-center align-items-center font-weight-bold text-center">
                 Year of Birth
                 </label>
             </div>
             <div class="col p-1">
-                <input type="number" class="form-control" name="age" style="border: solid 1px black;">
+                <input type="number" class="form-control" name="age" placeholder="18" style="border: solid 1px black;">
                 <label class="d-flex justify-content-center align-items-center font-weight-bold text-center">
                 Age
                 </label>
@@ -584,7 +593,7 @@
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
-        <strong><h4 style="color: blue; margin: 0;"> 9. If Scholar, What Type of Scholarship Package (TWSP, PESDA, STEP)? <input name="type_scholar" type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
+        <strong><h4 style="color: blue; margin: 0;"> 9. If Scholar, What Type of Scholarship Package (TWSP, PESDA, STEP)? <input name="type_scholar" value="{{ $scholar_type }}" readonly type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
@@ -622,8 +631,17 @@
 
         <div class="container">
             <div class="signature-box">
-                <div class="signature-line"></div>
+                <!-- <div class="signature-line"></div> -->
+                <center><div id="sig" style="height:100px;width:380px;"></div></center>
+                <br>
+          
+                <textarea id="signature" name="signed" style="display: none"></textarea>
                 <label style="font-size: large;">APPLICANT’S SIGNATURE OVER PRINTED NAME</label>
+                <td>
+                    <center>
+                        <button id="clear" class="btn btn-danger">Clear</button>
+                    </center>
+                </td>
             </div>
 
             <div class="date-box">
@@ -670,6 +688,12 @@
 </div>
 </x-app-layout>
 <script>
+    var sig = $('#sig').signature({syncField: '#signature', syncFormat: 'PNG'});
+    $('#clear').click(function (e) {
+        e.preventDefault();
+        sig.signature('clear');
+        $('#signature').val(''); // Clear the value of the textarea
+    });
 
 function toggleCheckbox1(currentId, otherId) {
     const currentCheckbox = document.getElementById(currentId);

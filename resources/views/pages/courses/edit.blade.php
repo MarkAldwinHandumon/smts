@@ -62,14 +62,20 @@
                             </div>
 
                             <div class="form-row">
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label>Start Date</label>
                                     <input type="date" class="form-control" name="start_date" value="{{ $course->start_date }}" placeholder="Date of Birth">
                                 </div>
-                                <div class="form-group col-md-4">
-                                <label>End Date</label>
-                                <input type="date" class="form-control" name="end_date" value="{{ $course->end_date }}" placeholder="Date of Birth">
+                                <div class="form-group col-md-3">
+                                    <label>End Date</label>
+                                    <input type="date" class="form-control" name="end_date" value="{{ $course->end_date }}" placeholder="Date of Birth">
                                 </div>
+
+                                <div class="form-group col-md-2">
+                                    <label>Scholar Type</label>
+                                    <input type="text" class="form-control" name="scholar_type" value="{{ $course->scholar_type }}" placeholder="Type of Scholar">
+                                </div>
+
                             </div>
 
                             <button type="submit" class="btn btn-primary">Save</button>

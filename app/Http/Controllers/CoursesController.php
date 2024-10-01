@@ -69,10 +69,12 @@ class CoursesController extends Controller
         $course->description = $request->input('description');
         $course->upload = $imagePath; // Save the image path to the database
         $course->slots = $request->input('slots');
+        $course->remaining = $request->input('slots');
         $course->batch = $request->input('batch');
         $course->status = 'In Progress';
         $course->start_date = $request->input('start_date');
         $course->end_date = $request->input('end_date');
+        $course->scholar_type = $request->input('scholar_type');
         $course->save();
     
         return response()->json([
@@ -137,9 +139,11 @@ class CoursesController extends Controller
         $course->description = $request->input('description');
         $course->upload = $imagePath; // Save the new image path to the database
         $course->slots = $request->input('slots');
+        $course->remaining = $request->input('slots');
         $course->batch = $request->input('batch');
         $course->start_date = $request->input('start_date');
         $course->end_date = $request->input('end_date');
+        $course->scholar_type = $request->input('scholar_type');
         $course->save();
 
         return response()->json([

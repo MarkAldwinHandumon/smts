@@ -31,10 +31,10 @@ class StudentController extends Controller
         $courses = Courses::all();
 
         if(auth()->user()->type ==  'Admin'){
-            $users = Student::with(['user','subject'])->get();
+            $users = Student::with(['user','subject'])->where('course_status','approved')->get();
         }else{
             $teacher = Teacher::where('user_id',auth()->user()->id)->first();
-            $users = Student::with(['user','subject'])->where('course_id',$teacher->subject)->get();
+            $users = Student::with(['user','subject'])->where('course_id',$teacher->subject)->where('course_status','approved')->get();
         }
 
         return view('pages.student.index',compact('users','courses'));
@@ -45,7 +45,6 @@ class StudentController extends Controller
      */
     public function create()
     {
-        
         return view('pages.student.index');
     }
 
@@ -54,8 +53,18 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-
         
+        $folderPath = public_path('uploads/profile/'); // Use public_path() instead of storage_path()
+        $image_parts = explode(";base64,", $request->signed);
+        $image_type_aux = explode("image/", $image_parts[0]);
+        $image_type = $image_type_aux[1];
+        $image_base64 = base64_decode($image_parts[1]);
+        $file_name = uniqid() . '.' . $image_type; // Generate a unique file name
+        $file_path = $folderPath . $file_name;
+
+        // Save the signature image file
+        file_put_contents($file_path, $image_base64);
+
         $request->validate([
             'first_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
@@ -66,7 +75,6 @@ class StudentController extends Controller
             return back()->withErrors('Please select agree in I hereby allow TESDA to use/post my contact details');
         }
 
-
         $user = User::findOrFail(auth()->user()->id);
         $user->first_name = $request->input('first_name');
         $user->middle_name = $request->input('middle_name');
@@ -75,16 +83,26 @@ class StudentController extends Controller
         $user->phone = $request->input('phone');
         $user->save();
         
+        $studentData = $request->only([
+            'nationality', 'sex', 'status', 'employement_status', 'bmonth', 'bday', 'byear',
+            'age', 'bcity', 'bprovince', 'bregion', 'ncae', 'where', 'when', 'qualification',
+            'type_scholar', 'disclaimer', 'course_id', 'course_status'
+        ]);
+        
+        // Add the signature to the student data
+        $studentData['signature'] = $file_name;
+        
+        Student::updateOrCreate(
+            ['user_id' => auth()->user()->id],
+            $studentData
+        );
+        
+
+        
         $addressData = $request->only(['street', 'barangay', 'district', 'city', 'province', 'region']);
         Address::updateOrCreate(
             ['user_id' => auth()->user()->id],
             $addressData
-        );
-
-        $studentData = $request->only(['nationality', 'sex', 'status', 'employement_status', 'bmonth', 'bday','byear','age','bcity','bprovince','bregion','ncae','where','when','qualification','type_scholar','disclaimer','course_id','course_status']);
-        Student::updateOrCreate(
-            ['user_id' => auth()->user()->id],
-            $studentData
         );
 
 
@@ -259,7 +277,7 @@ class StudentController extends Controller
 
         if($user->type == 'Student')
         {
-            $courses->slots =  $courses->slots + 1;
+            $courses->remaining =  $courses->remaining + 1;
             $courses->save();
             $user->type = 'Guest';
             $user->save();

@@ -229,11 +229,19 @@
                         <center><img src="{{ asset('assets/images/tesda.png') }}" alt="user image" class="img-fluid card-img-top" style="width: 30%;"></center>
                         @endif
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title text-center">Slots left: {{ $course->slots }}</h5>
+                            <h5 class="card-title text-center">Slots left: {{ $course->remaining }}</h5>
 
+                            <?php 
+                                // Calculate the percentage
+                                $data = $course->slots - $course->remaining;
+                                $value = ($data /  $course->slots) * 100;
+                            // echo $value;
+                            ?>
                             <div class="progress mb-4" style="height: 20px;">
-                                <div class="progress-bar" role="progressbar"  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="progress-bar" role="progressbar" style="width: <?php echo $value; ?>%;" ></div>
                             </div>
+
+
 
                             <h5 class="card-title text-center">{{ $course->title }} <br> Batch {{ $course->batch }} </h5>
 

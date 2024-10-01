@@ -134,7 +134,20 @@ class ScheduleController extends Controller
         $student = Student::where('id', $id)->first();
         $student->course_status = 'approved';
         $student->save();
-        return back()->with('success', 'Form Successfully  Approved');
+
+        $user = User::where('id', $student->user_id)->first();
+        $user->type = 'Student';
+        $user->save();
+
+        $course = Courses::where('id', $student->course_id)->first();
+
+
+        if ($course) {
+            $course->remaining =  $course->remaining - 1;
+            $course->save();         
+        }
+        
+        // return back()->with('success', 'Form Successfully  Approved');
     }
 
     public function fillUp($id)
@@ -144,17 +157,26 @@ class ScheduleController extends Controller
         $disablities = Disability::all();
         $causes = Cause::all();
 
-        $interns = Student::where('course_status', 'pending')
-        ->where('user_id', auth()->user()->id)
+        $interns = Student::where('user_id', auth()->user()->id)
+        ->whereHas('subject', function ($query) {
+            $query->where('status', '!=', 'Completed');
+        })
         ->count();
     
+        $courses = Courses::where('id', $id)->first();
+
+        if($courses->remaining == 0){
+            $scholar_type = 'Regular';
+        }else{
+            $scholar_type = $courses->scholar_type;
+        }
 
         if($interns > 0)
         {
             return back()->withErrors('You have a pending course please settle it to the administrator or kindly finished ur program');
         }
 
-        return view('pages.guest.form',['educations' => $educations,'classifications' => $classifications,'disablities' => $disablities,'causes' => $causes, 'id' => $id]);
+        return view('pages.guest.form',['educations' => $educations,'classifications' => $classifications,'disablities' => $disablities,'causes' => $causes, 'id' => $id, 'scholar_type' => $scholar_type]);
     }
 
     public function destroy(Request $request)

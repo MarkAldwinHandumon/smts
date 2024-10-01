@@ -30,7 +30,8 @@ class Student extends Model
         'disclaimer',
         'course_id',
         'course_status',
-        'notes'
+        'notes',
+        'signature'
     ];
 
     public function user(): BelongsTo
