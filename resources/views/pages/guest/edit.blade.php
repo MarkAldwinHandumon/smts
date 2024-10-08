@@ -647,7 +647,7 @@
         <br>
 
         <div class="container">
-            <div class="signature-box">
+            <div class="signature-box"> 
                 <!-- <div class="signature-line"></div> -->
                 <img src="{{ asset('uploads/profile/' . $student->signature) }}" >
 

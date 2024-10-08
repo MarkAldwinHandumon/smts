@@ -589,7 +589,7 @@
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
-        <strong><h4 style="color: blue; margin: 0;"> 8. Name of Course/Qualification <input type="text" name="qualification" style="width: 500px;border:none;background-color:transparent"></h4></strong>
+        <strong><h4 style="color: blue; margin: 0;"> 8. Name of Course/Qualification <input type="text" name="qualification" value="{{ $courses->title }}" style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
@@ -597,7 +597,7 @@
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
-        <strong><h4 style="color: blue; margin: 0;"> 10. Privacy Disclaimer <input name="disclaimer" type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
+        <strong><h4 style="color: blue; margin: 0;"> 10. Privacy Disclaimer <input name="disclaimer" disabled type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
@@ -619,7 +619,7 @@
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
-    <strong><h4 style="color: blue; margin: 0;"> 11. Applicant’s Signature <input name="disclaimer" type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
+    <strong><h4 style="color: blue; margin: 0;"> 11. Applicant’s Signature <input name="disclaimer" disabled type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">

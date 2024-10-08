@@ -176,7 +176,7 @@ class ScheduleController extends Controller
             return back()->withErrors('You have a pending course please settle it to the administrator or kindly finished ur program');
         }
 
-        return view('pages.guest.form',['educations' => $educations,'classifications' => $classifications,'disablities' => $disablities,'causes' => $causes, 'id' => $id, 'scholar_type' => $scholar_type]);
+        return view('pages.guest.form',['educations' => $educations,'classifications' => $classifications,'disablities' => $disablities,'causes' => $causes, 'id' => $id, 'scholar_type' => $scholar_type, 'courses' => $courses]);
     }
 
     public function destroy(Request $request)
