@@ -42,10 +42,10 @@
                                 @foreach($students as $student)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ ucwords($student->user->first_name) }}</td>
-                                    <td>{{ $student->user->email }}</td>
-                                    <td>{{ $student->user->phone }}</td>
-                                    <td>{{ $student->user->type_scholar }}</td>
+                                    <td>{{ ucwords(@$student->user->first_name) }}</td>
+                                    <td>{{ @$student->user->email }}</td>
+                                    <td>{{ @$student->user->phone }}</td>
+                                    <td>{{ @$student->user->type_scholar }}</td>
                                     <td>{{ @$student->subject->title }}</td>
                                     <td>{{ @date('m/d/Y g:i A', strtotime($student->created_at)) }}</td>
                                     <td>{{ $student->course_status }}</td>

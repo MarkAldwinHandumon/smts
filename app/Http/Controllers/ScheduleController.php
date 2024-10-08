@@ -185,7 +185,6 @@ class ScheduleController extends Controller
         $user = User::find($id);
         $user->delete();
         return back()->with('success', 'Guest successfully deleted');
-
     }
     
 }

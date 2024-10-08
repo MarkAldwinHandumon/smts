@@ -52,6 +52,7 @@
           <li><a href="#courses">Courses</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#team">Team</a></li>
+          <li><a href="{{ route('login') }}">Login</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

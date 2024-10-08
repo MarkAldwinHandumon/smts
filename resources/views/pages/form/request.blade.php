@@ -655,15 +655,21 @@
 
         <table class="table1" style="border-top:none;">
             <tr>
-                <td style="width: 50%;">
-                    <center>
-                        <span style="color:black;font-size: 12px;font-weight:bold;border-top:solid 1px;padding-top:5px;">
-                            APPLICANT’S SIGNATURE OVER PRINTED NAME      
-                        </span>
-                   </center>
-                </td>
+            <td style="width: 50%;">
+    <div style="text-align: center;">
+        <!-- Signature image at the top -->
+        <img src="{{ asset('uploads/profile/' . $students->signature) }}" style="height: 30px; width: auto;">
 
-                <td style="width: 20%;">
+        <!-- Text with border matching text width -->
+        <span style="color:black; font-size: 10px; font-weight: bold; border-top: solid 1px; padding-top: 5px; display: inline-block; margin-top: 10px;">
+            APPLICANT’S SIGNATURE OVER PRINTED NAME
+        </span>
+    </div>
+</td>
+
+
+
+                <td style="width: 20%;padding-top:45px;">
                     <center>
                     <span style="color:black;font-size: 12px;font-weight:bold;border-top:solid 1px;padding-top:5px;">
                             DATE ACCOMPLISHED
