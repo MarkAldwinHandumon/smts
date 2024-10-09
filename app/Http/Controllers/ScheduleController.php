@@ -147,7 +147,7 @@ class ScheduleController extends Controller
             $course->save();         
         }
         
-        // return back()->with('success', 'Form Successfully  Approved');
+        return back()->with('success', 'Form Successfully  Approved');
     }
 
     public function fillUp($id)
