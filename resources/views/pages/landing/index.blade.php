@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Selecao Bootstrap Template</title>
+  <title>SMST - St. Martha Skills Training And Assement Center Inc</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -42,7 +42,7 @@
       </a> -->
 
       <div>
-        <img src="{{ asset('assets/images/lgo.jpg') }}" alt="user image" class="img-fluid" style="width: 100px;height:80px;">
+        <img src="{{ asset('assets/images/stmartha.png') }}" alt="user image" class="img-fluid" style="width: 70px;height:70px;">
       </div>
 
       <nav id="navmenu" class="navmenu">
@@ -52,7 +52,8 @@
           <li><a href="#courses">Courses</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#team">Team</a></li>
-          <li><a href="{{ route('login') }}">Login</a></li>
+          <li><a href="{{ route('login') }}"><i class="bi bi-person-circle" style="font-size: 1.5em; margin-right: 5px;"></i> L O G I N</a> <!-- Adds space between icon and text -->
+          </li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -70,8 +71,8 @@
         <!-- Slide 1 -->
         <div class="carousel-item active">
           <div class="carousel-container">
-            <h2 class="animate__animated animate__fadeInDown">Welcome to <span>ST. Martha Skills Training & Assessment Center Inc.</span></h2>
-            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+            <h2 class="animate__animated animate__fadeInDown">WELCOME to<br> ST. Martha Skills Training & Assessment Center Inc.</br></h2>
+            <p class="animate__animated animate__fadeInUp">Compassionate caregivers all over the world.</p>
             <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
           </div>
         </div>
@@ -80,7 +81,7 @@
         <div class="carousel-item">
           <div class="carousel-container">
             <h2 class="animate__animated animate__fadeInDown">About St. Martha</h2>
-            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+            <p class="animate__animated animate__fadeInUp">St.Marth was established in 1998 and it was the only training center in Bohol during that time to offer caregiving courses that produces compassionate caregivers all over the world.</p>
             <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
           </div>
         </div>
@@ -89,7 +90,7 @@
         <div class="carousel-item">
           <div class="carousel-container">
             <h2 class="animate__animated animate__fadeInDown">Biggest tesda training institution in Bohol</h2>
-            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+            <p class="animate__animated animate__fadeInUp">It is the only training center in Bohol that has a satellite campus that offeres in total of 10 different training qualification.</p>
             <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
           </div>
         </div>
@@ -135,7 +136,7 @@
         <div class="row gy-4">
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <p>
+            <p style="font-size:14px;">
               St. Martha Skills Training and Assesment Center,Inc. as a guiding force that produces Filipino workforce with global competence and positive work value
             </p>
             <ul>
@@ -146,7 +147,8 @@
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+            <p> Within our Training Center, a collective of seasoned professionals comprises Registered Nurses,
+            Lawyers, Licensed Physical Therapist, Registered Pharmacist, and Licensed  Professional Teachers.</p>
             <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
           </div>
 
@@ -198,7 +200,7 @@
                 </p>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{{ asset('assets2/img/working-3.jpg') }}" alt="" class="img-fluid">
+                <img src="{{ asset('assets2/img/working-5.jpg') }}" alt="" class="img-fluid">
              
               </div>
             </div>
@@ -223,13 +225,13 @@
                  both theoretical education and hands-on practical experience.
                 </p>
                 <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Excellent trainers</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Clean and organized training facility.</span></li>
+                  <li><i class="bi bi-check2-all"></i> <span>Fully aircondioned and Comfortable learning areas.</span></li>
                 </ul>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{{ asset('assets2/img/working-4.jpg') }}" alt="" class="img-fluid">
+                <img src="{{ asset('assets2/img/working-7.jpg') }}" alt="" class="img-fluid">
               </div>
             </div>
           </div><!-- End Tab Content Item -->
@@ -289,134 +291,7 @@
       </div>
     </section><!-- /Recent Posts Section -->
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>What they are saying about us</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 1,
-                  "spaceBetween": 40
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 10
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-              
-                <img src="{{ asset('assets2/img/testimonials/testimonials-1.jpg') }}" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{{ asset('assets2/img/testimonials/testimonials-2.jpg') }}" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{{ asset('assets2/img/testimonials/testimonials-3.jpg') }}" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{{ asset('assets2/img/testimonials/testimonials-4.jpg') }}" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <img src="{{ asset('assets2/img/testimonials/testimonials-5.jpg') }}" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-                <div class="stars">
-                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                </div>
-                <p>
-                  <i class="bi bi-quote quote-icon-left"></i>
-                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                  <i class="bi bi-quote quote-icon-right"></i>
-                </p>
-              </div>
-            </div><!-- End testimonial item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
+   
     <!-- Faq Section -->
     <section id="faq" class="faq section">
       <!-- Section Title -->
@@ -432,16 +307,16 @@
               <div class="accordion-item">
                 <h2 class="mb-0">
                   <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-1">
-                    How to download and register?
+                    How to Enroll?
                   </button>
                 </h2>
 
                 <div id="collapse-faq-1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion-faq">
                   <div class="accordion-body">
-                    Far far away, behind the word mountains, far from the countries
-                    Vokalia and Consonantia, there live the blind texts. Separated
-                    they live in Bookmarksgrove right at the coast of the Semantics,
-                    a large language ocean.
+                    Step 1. Click "Enroll Me" button in the posted available courses section.
+                    Step 2. If slots are available you are automatically being enrolled as scholar but if it's not you will be a regular student.
+                    Step 3. Fill out the LPS(Learner's Profile Sheet) and submit necessary documents needed.
+                    Step 4. Wait for the email confirmation if your application was approved.
                   </div>
                 </div>
               </div>
@@ -449,15 +324,16 @@
 
               <div class="accordion-item">
                 <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-2" "="">
-                How to create your paypal account?
+                  <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-2">
+                What are the requirements to be uploaded?
               </button>
             </h2>
             <div id=" collapse-faq-2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion-faq">
                     <div class="accordion-body">
-                      A small river named Duden flows by their place and supplies it
-                      with the necessary regelialia. It is a paradisematic country, in
-                      which roasted parts of sentences fly into your mouth.
+                      1. Birth Certificate
+                      2. TOR/Highschool diploma
+                      3. 2x2 Picture Scan
+                  
                     </div>
               </div>
             </div>
@@ -466,17 +342,13 @@
             <div class="accordion-item">
               <h2 class="mb-0">
                 <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-3">
-                  How to link your paypal and bank account?
+                  How to check our enrollment status thru website?
                 </button>
               </h2>
 
               <div id="collapse-faq-3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion-faq">
                 <div class="accordion-body">
-                  When she reached the first hills of the Italic Mountains, she
-                  had a last view back on the skyline of her hometown
-                  Bookmarksgrove, the headline of Alphabet Village and the subline
-                  of her own road, the Line Lane. Pityful a rethoric question ran
-                  over her cheek, then she continued her way.
+                   Check your application or student status using you login credentials and view your status in the student tab.
                 </div>
               </div>
             </div>
@@ -505,7 +377,7 @@
             <div class="team-member">
               <div class="member-img">
 
-                <img src="{{ asset('assets2/img/team/team-5.jpg') }}" class="img-fluid" alt="">
+                <img src="{{ asset('assets2/img/team/team-9.jpg') }}" class="img-fluid" alt="">
                 
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -515,8 +387,8 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Dr. Nina Chatto Lasala</h4>
-                <span>School President</span>
+                <h4>Nina Chatto-Lasala, Rph</h4>
+                <span>School President/TESDA Board of Trustee</span>
               </div>
             </div>
           </div><!-- End Team Member -->
@@ -524,7 +396,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member">
               <div class="member-img">
-                <img src="{{ asset('assets2/img/team/team-6.jpg') }}" class="img-fluid" alt="">
+                <img src="{{ asset('assets2/img/team/team-8.jpg') }}" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -533,8 +405,8 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
+                <h4>Jun Karaan,RN,LPT </h4>
+                <span>Assessment Center Manager</span>
               </div>
             </div>
           </div><!-- End Team Member -->
@@ -542,7 +414,7 @@
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member">
               <div class="member-img">
-                <img src="{{ asset('assets2/img/team/team-6.jpg') }}" class="img-fluid" alt="">
+                <img src="{{ asset('assets2/img/team/team-5.jpg') }}" class="img-fluid" alt="">
                 <div class="social">
                   <a href=""><i class="bi bi-twitter-x"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -551,8 +423,26 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
+                <h4>Epifania Honculada Migueles </h4>
+                <span>Bookeeper/ Bookeeping NCII Trainer</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="{{ asset('assets2/img/team/team-12.jpg') }}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Ann Shiela Granada</h4>
+                <span>Guidance Office- Incharge/ Caregiving NCII/Healthcare Services NCII Trainer</span>
               </div>
             </div>
           </div><!-- End Team Member -->
@@ -569,12 +459,119 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
+                <h4>JheiRamil Sumalinog</h4>
+                <span>Office Assistant/Caregiving NCII Trainer/Barangay Health Services NCII</span>
               </div>
             </div>
           </div><!-- End Team Member -->
 
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="{{ asset('assets2/img/team/team-6.jpg') }}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Gertrude Alivio S. Galleros</h4>
+                <span>Office Assistant/Caregiving NCII Trainer</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="{{ asset('assets2/img/team/team-10.jpg') }}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Marivic Cemine, LPT</h4>
+                <span>SMSTACI Representative/ FBS NCII/Housekeeping NCII Trainer/Assesor</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="{{ asset('assets2/img/team/team-13.jpg') }}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Melissa Cemine-Handumon</h4>
+                <span>Bookkeeping NCII Trainer/Assessor</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="{{ asset('assets2/img/team/team-14.jpg') }}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Roy Rama</h4>
+                <span>IT Support Officer/Computer System Servicing NCII Trainer/Assessor</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="{{ asset('assets2/img/team/team-15.jpg') }}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Corazon Calis-Rama</h4>
+                <span>IT Support Staff/Registrar Incharge</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="{{ asset('assets2/img/team/team-11.jpg') }}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Mark Aldwin Cemine Handumon</h4>
+                <span>IT Support Staff</span>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
         </div>
 
       </div>

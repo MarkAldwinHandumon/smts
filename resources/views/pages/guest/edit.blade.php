@@ -758,7 +758,7 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + '/guest/approved', // Ensure 'appUrl' is defined and valid
+                        url: appUrl + 'guest/approved', // Ensure 'appUrl' is defined and valid
                         headers: {
                             'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
                         },

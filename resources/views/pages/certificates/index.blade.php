@@ -91,7 +91,7 @@
                     <form method="POST" action="{{ route('certificate.create') }}" class="needs-validation" novalidate enctype="multipart/form-data">
                     @csrf
                         <div class="form-group">
-                            <label for="inputState">Requirement Type</label>
+                            <label for="inputState">Student's Name</label>
                             <select class="form-control select2" name="user_id" required>
                                 <option value="">Select</option>
                                 @foreach ($list as $row)
