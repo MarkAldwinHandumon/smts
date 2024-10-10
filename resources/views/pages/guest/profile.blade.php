@@ -225,7 +225,7 @@ function change_status(id,status)
 {
     $.ajax({
         type: "POST",
-        url:appUrl + '/guest/status',
+        url:appUrl + 'guest/status',
         headers: {
             'X-CSRF-TOKEN': csrfToken
         },
@@ -254,7 +254,7 @@ function convert_data(id)
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + '/guest/convert', // Ensure 'appUrl' is defined and valid
+                        url: appUrl + 'guest/convert', // Ensure 'appUrl' is defined and valid
                         headers: {
                             'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
                         },

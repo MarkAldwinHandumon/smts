@@ -164,7 +164,7 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + '/upload/delete', // Ensure 'appUrl' is defined and valid
+                        url: appUrl + 'upload/delete', // Ensure 'appUrl' is defined and valid
                         headers: {
                             'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
                         },
@@ -216,7 +216,7 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + '/student/delete', // Ensure 'appUrl' is defined and valid
+                        url: appUrl + 'student/delete', // Ensure 'appUrl' is defined and valid
                         headers: {
                             'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
                         },

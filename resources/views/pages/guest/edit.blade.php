@@ -799,7 +799,7 @@
     $('.bd-example-modal-lg').modal('show');
     $.ajax({
         type: "POST",
-        url:appUrl + '/guest/reason',
+        url:appUrl + 'guest/reason',
         headers: {
             'X-CSRF-TOKEN': csrfToken
         },
@@ -833,7 +833,7 @@ function delete_training(id, value)
 {
     $.ajax({
         type: "POST",
-        url:appUrl + '/student/delete-education',
+        url:appUrl + 'student/delete-education',
         headers: {
             'X-CSRF-TOKEN': csrfToken
         },
@@ -850,7 +850,7 @@ function delete_learner(id, value)
 {
     $.ajax({
         type: "POST",
-        url:appUrl + '/student/delete-learner',
+        url:appUrl + 'student/delete-learner',
         headers: {
             'X-CSRF-TOKEN': csrfToken
         },
@@ -867,7 +867,7 @@ function delete_disability(id, value)
 {
     $.ajax({
         type: "POST",
-        url:appUrl + '/student/delete-disability',
+        url:appUrl + 'student/delete-disability',
         headers: {
             'X-CSRF-TOKEN': csrfToken
         },
@@ -884,7 +884,7 @@ function delete_cause(id, value)
 {
     $.ajax({
         type: "POST",
-        url:appUrl + '/student/delete-cause',
+        url:appUrl + 'student/delete-cause',
         headers: {
             'X-CSRF-TOKEN': csrfToken
         },

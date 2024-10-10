@@ -146,7 +146,7 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + '/certificate/delete', // Ensure 'appUrl' is defined and valid
+                        url: appUrl + 'certificate/delete', // Ensure 'appUrl' is defined and valid
                         headers: {
                             'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
                         },
