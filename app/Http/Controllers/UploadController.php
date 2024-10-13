@@ -84,4 +84,21 @@ class UploadController extends Controller
         return back()->with('success', 'Requirement delete successfully.');
     }
 
+    public function status(Request $request, $id)
+    {
+        $upload = Upload::findOrFail($id); 
+        $upload->status = $request->input('status');
+        $upload->description = $request->input('description');
+        $upload->save();
+        return back()->with('success', 'Requirement saved successfully.');
+    }
+
+    public function data(Request $request)
+    {
+        $id = $request->input('id');
+        $status = $request->input('status');
+        $upload = Upload::findOrFail($id); 
+        return view('pages.submitted.data',compact('upload','status'));
+    }
+
 }

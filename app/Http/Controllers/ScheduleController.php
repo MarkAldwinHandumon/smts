@@ -43,13 +43,15 @@ class ScheduleController extends Controller
         
         $user = User::with('student')->where('id', $id)->first();
 
-        $documents = Requirements::with('upload')
-        ->whereHas('upload', function ($q) use ($id) {
-            $q->where('user_id', $id);
-        })
-        ->orWhereDoesntHave('upload')
-        ->get();
-
+        // $documents = Requirements::with('upload')
+        // ->whereHas('upload', function ($q) use ($id) {
+        //     $q->where('user_id', $id);
+        // })
+        // ->orWhereDoesntHave('upload')
+        // ->get();
+        
+        $documents = Upload::with('document')->where('user_id',$id)->get();
+  
         $student = Student::where('user_id', $id)
         ->get();
         
@@ -122,7 +124,7 @@ class ScheduleController extends Controller
     public function requirements()
     {
         $documents = Requirements::all();
-        $uploads = Upload::with('document')->get();
+        $uploads = Upload::with('document')->where('user_id',auth()->user()->id)->get();
         $student = Student::where('user_id', auth()->user()->id)
         ->get();
         return view('pages.guest.requirements',compact('documents','uploads','student'));

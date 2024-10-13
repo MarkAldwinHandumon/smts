@@ -9,6 +9,7 @@ use App\Http\Controllers\RequirementsController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\SubmittedController;
 use App\Http\Controllers\UploadController;
 use App\Models\Courses;
 use App\Models\Student;
@@ -72,7 +73,9 @@ Route::middleware('auth')->group(function () {
         Route::post('/status', [CoursesController::class, 'status'])->name('status');
     });
 
-
+    Route::name('submitted.')->prefix('/submitted')->group(function () {
+        Route::get('/', [SubmittedController::class, 'index'])->name('index');
+    });
 
     Route::name('guest.')->prefix('/guest')->group(function () {
         Route::get('/', [ScheduleController::class, 'index'])->name('index');
@@ -102,6 +105,8 @@ Route::middleware('auth')->group(function () {
     Route::name('upload.')->prefix('/upload')->group(function () {
         Route::post('/create', [UploadController::class, 'store'])->name('create');
         Route::post('/delete', [UploadController::class, 'destroy'])->name('delete');
+        Route::post('/data', [UploadController::class, 'data'])->name('data');
+        Route::put('/status/{id}', [UploadController::class, 'status'])->name('status');
     });
 
     Route::name('tesda.')->prefix('/tesda')->group(function () {

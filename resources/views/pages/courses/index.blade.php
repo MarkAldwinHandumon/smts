@@ -197,7 +197,7 @@
             {
                 $.ajax({
                     type: "POST",
-                    url:appUrl + 'courses/status',
+                    url: '{{ route("courses.status") }}',
                     headers: {
                         'X-CSRF-TOKEN': csrfToken
                     },

@@ -606,11 +606,11 @@
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
-        <strong><h4 style="color: blue; margin: 0;"> 8. Name of Course/Qualification <input type="text" value="{{ $student->qualification }}" name="qualification" style="width: 500px;border:none;background-color:transparent"></h4></strong>
+        <strong><h4 style="color: blue; margin: 0;"> 8. Name of Course/Qualification <input type="text" value="{{ $student->qualification }}" name="qualification" readonly style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
-        <strong><h4 style="color: blue; margin: 0;"> 9. If Scholar, What Type of Scholarship Package (TWSP, PESDA, STEP)? <input name="type_scholar" value="{{ $student->type_scholar }}" type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
+        <strong><h4 style="color: blue; margin: 0;"> 9. If Scholar, What Type of Scholarship Package (TWSP, PESDA, STEP)? <input name="type_scholar" value="{{ $student->type_scholar }}" readonly type="text" style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:white">
@@ -742,7 +742,6 @@
 </x-app-layout>
 <script>
       const appUrl = document.querySelector('meta[name="app-url"]').getAttribute('content');
-
  function approved(id)
  {
     Swal.fire({
@@ -758,7 +757,7 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + 'guest/approved', // Ensure 'appUrl' is defined and valid
+                        url: '{{ route("guest.approved") }}',
                         headers: {
                             'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
                         },
@@ -799,7 +798,7 @@
     $('.bd-example-modal-lg').modal('show');
     $.ajax({
         type: "POST",
-        url:appUrl + 'guest/reason',
+        url: '{{ route("guest.reason") }}',
         headers: {
             'X-CSRF-TOKEN': csrfToken
         },
@@ -833,7 +832,7 @@ function delete_training(id, value)
 {
     $.ajax({
         type: "POST",
-        url:appUrl + 'student/delete-education',
+        url: '{{ route("student.delete.education") }}', // Use the correct route name with dots
         headers: {
             'X-CSRF-TOKEN': csrfToken
         },
@@ -850,7 +849,7 @@ function delete_learner(id, value)
 {
     $.ajax({
         type: "POST",
-        url:appUrl + 'student/delete-learner',
+        url: '{{ route("student.delete.learner") }}',
         headers: {
             'X-CSRF-TOKEN': csrfToken
         },
@@ -867,7 +866,7 @@ function delete_disability(id, value)
 {
     $.ajax({
         type: "POST",
-        url:appUrl + 'student/delete-disability',
+        url: '{{ route("student.delete.disability") }}',
         headers: {
             'X-CSRF-TOKEN': csrfToken
         },
@@ -884,7 +883,7 @@ function delete_cause(id, value)
 {
     $.ajax({
         type: "POST",
-        url:appUrl + 'student/delete-cause',
+        url: '{{ route("student.delete.cause") }}',
         headers: {
             'X-CSRF-TOKEN': csrfToken
         },

@@ -121,7 +121,7 @@
             $('.bd-example-modal-lg-edit').modal('show');
             $.ajax({
                 type: "POST",
-                url:appUrl + 'requirements/edit',
+                url: '{{ route("requirements.edit") }}',
                 headers: {
                     'X-CSRF-TOKEN': csrfToken
                 },
@@ -153,7 +153,7 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + 'requirements/delete', // Ensure 'appUrl' is defined and valid
+                        url: '{{ route("requirements.delete") }}',
                         headers: {
                             'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
                         },

@@ -45,6 +45,10 @@
 					<a href="{{ route('student.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Student's</span></a>
 				</li>
 
+				<li class="nav-item">
+					<a href="{{ route('submitted.index') }}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Requirement's</span></a>
+				</li>
+
 				<li class="nav-item pcoded-hasmenu">
 					<a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Settings</span></a>
 					<ul class="pcoded-submenu" style="background-color: orange;">

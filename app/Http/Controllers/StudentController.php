@@ -53,22 +53,26 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-        
-        $folderPath = public_path('uploads/profile/'); // Use public_path() instead of storage_path()
-        $image_parts = explode(";base64,", $request->signed);
-        $image_type_aux = explode("image/", $image_parts[0]);
-        $image_type = $image_type_aux[1];
-        $image_base64 = base64_decode($image_parts[1]);
-        $file_name = uniqid() . '.' . $image_type; // Generate a unique file name
-        $file_path = $folderPath . $file_name;
-
-        // Save the signature image file
-        file_put_contents($file_path, $image_base64);
-
         $request->validate([
             'first_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
+            'signed' => ['required', 'string'],
+        ], [
+            'signed.required' => 'Please put your signature in the signed field.',
         ]);
+
+        if($request->signed){
+            $folderPath = public_path('uploads/profile/'); // Use public_path() instead of storage_path()
+            $image_parts = explode(";base64,", $request->signed);
+            $image_type_aux = explode("image/", $image_parts[0]);
+            $image_type = $image_type_aux[1];
+            $image_base64 = base64_decode($image_parts[1]);
+            $file_name = uniqid() . '.' . $image_type; // Generate a unique file name
+            $file_path = $folderPath . $file_name;
+    
+            // Save the signature image file
+            file_put_contents($file_path, $image_base64);
+        }
 
 
         if($request->input('rdy')== false){
@@ -263,7 +267,7 @@ class StudentController extends Controller
     {
         $id = $request->input('id');
 
-        $student = Student::where('user_id', $id)
+        $student = Student::where('id', $id)
         ->firstOrFail();
 
         $user = User::where('id', $id)

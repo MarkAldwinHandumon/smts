@@ -26,4 +26,9 @@ class Upload extends Model
     {
         return $this->belongsTo(Requirements::class, 'document_id');
     }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

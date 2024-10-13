@@ -21,7 +21,7 @@
     <div class="col-md-12">
         <div class="card">
                 <div class="card-header">
-                    <h5>Course List</h5>
+                    <h5>Requirement's List</h5>
                         <a href="#" class="btn btn-primary float-right" data-toggle="modal" data-target=".bd-example-modal-lg">
                             <i class="feather icon-plus"></i> Create
                         </a>
@@ -164,7 +164,7 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + 'upload/delete', // Ensure 'appUrl' is defined and valid
+                        url: '{{ route("upload.delete") }}',
                         headers: {
                             'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
                         },
@@ -216,7 +216,7 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + 'student/delete', // Ensure 'appUrl' is defined and valid
+                        url: '{{ route("student.delete") }}',
                         headers: {
                             'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
                         },

@@ -116,48 +116,33 @@
                                 <th scope="col">Requirements</th>
                                 <th scope="col">Attachments</th>
                                 <th scope="col">File Type</th>
-                                <th scope="col">Date Submitted</th>
                                 <th scope="col"> Remarks</th>
                                 <th scope="col">Status</th>
-                                <!-- <th scope="col">Action</th> -->
+                                <th scope="col">Date Submitted</th>
                             </tr>
                         </thead>
                         <tbody>
-                            
-                  
                         @foreach($documents as $document)
                         <tr>
-                            <td>{{ @$document->name }}</td>
+                        <td>{{ @$document->document->name }}</td>
                             <td>
                                 <a 
                                     href="#" 
                                     title="View" 
-                                    onclick="handleDownload(event, {{ @$document->upload->id }})">
+                                    onclick="handleDownload(event, {{ @$document->document->id }})">
                                     
-                                    <span>{{ strlen(@$document->upload->document_name) > 20 ? substr(@$document->upload->document_name,0,20)."..." : @$document->upload->document_name; }}</span>
+                                    <span>{{ strlen(@$document->document_name) > 20 ? substr(@$document->document_name,0,20)."..." : @$document->document_name; }}</span>
                                 </a>
                             </td>
                             <td>
-                                {{ @$document->upload->document_extension? @$document->upload->document_extension : 'Not yet' }}
+                                {{ @$document->document_extension? @$document->document_extension : 'Not yet' }}
                             </td>
+                            <td>
+                                {{ @$document->description? @$document->description : 'Not yet' }}
+                            </td>
+                            <td>{{ @$document->status }}</td>
                             <td> 
-                                {{ @$document->upload->created_at ? date('m/d/Y g:i A', strtotime($document->upload->created_at)) : '' }}
-                            </td>
-
-                            <td>
-                                {{ @$document->upload->description? @$document->upload->description : 'Not yet' }}
-                            </td>
-
-                            <td>
-                                @if(@$document->upload->status)
-                                <select class="form-control select2" name="gender" onchange="change_status({{ $document->upload->id }}, this.value)">
-                                    <option>Select</option>
-                                    <option value="pending" {{ @$document->upload->status == 'pending' ? 'selected' : '' }}>Pending</option>
-                                    <option value="approved"{{ @$document->upload->status == 'approved' ? 'selected' : '' }}>Approved</option>
-                                    <option value="reject"{{ @$document->upload->status == 'reject' ? 'selected' : '' }}>Reject</option>
-                                </select>
-                                @else
-                                @endif
+                                {{ @$document->created_at ? date('m/d/Y g:i A', strtotime($document->created_at)) : '' }}
                             </td>
                         </tr>
                         @endforeach
@@ -225,7 +210,7 @@ function change_status(id,status)
 {
     $.ajax({
         type: "POST",
-        url:appUrl + 'guest/status',
+        url: '{{ route("guest.status") }}',
         headers: {
             'X-CSRF-TOKEN': csrfToken
         },
@@ -254,7 +239,7 @@ function convert_data(id)
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + 'guest/convert', // Ensure 'appUrl' is defined and valid
+                        url: '{{ route("guest.convert") }}',
                         headers: {
                             'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
                         },

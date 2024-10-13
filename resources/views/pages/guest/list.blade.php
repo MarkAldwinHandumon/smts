@@ -32,7 +32,7 @@
                                     <th>Email</th>
                                     <th>phone</th>
                                     <th>Date Joined</th>
-                                    <th>Form Submitted</th>
+                                    <!-- <th>Form Submitted</th> -->
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -44,9 +44,9 @@
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->phone }}</td>
                                     <td>{{ @date('m/d/Y g:i A', strtotime($user->created_at)) }}</td>
-                                    <td>
+                                    <!-- <td>
                                         {{ !empty($user->form->created_at) ? date('m/d/Y g:i A', strtotime($user->form->created_at)) : 'Not yet' }}
-                                    </td>
+                                    </td> -->
                                     <td>
                                     <a class="profile-action text-info" href="{{ route('guest.profile', ['id' => $user->id]) }}" title="Profile">
                                         <i class="feather icon-user"></i> 
@@ -107,9 +107,9 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + 'guest/delete', // Ensure 'appUrl' is defined and valid
+                        url: '{{ route("guest.delete") }}',
                         headers: {
-                            'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
+                            'X-CSRF-TOKEN': csrfToken
                         },
                         data: {
                             id: id // Your data

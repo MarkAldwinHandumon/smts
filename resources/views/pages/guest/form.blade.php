@@ -239,15 +239,15 @@
             <p style="font-weight:bold;font-size:large">2.1.	Name:</span>
             </div>
             <div class="col-3 p-1 ">
-            <input type="text" class="form-control" name="last_name" required style="border:solid 1px">
+            <input type="text" class="form-control" name="last_name" value="{{ Auth::user()->last_name }}" required style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">Last Name, Extension Name (e.g:Jr.)</label>
             </div>
             <div class="col-3 p-1">
-            <input type="text" class="form-control" name="first_name" style="border:solid 1px">
+            <input type="text" class="form-control" name="first_name" value="{{ Auth::user()->first_name }}" style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">First </label>
             </div>
             <div class="col-3 p-1">
-            <input type="text" class="form-control" name="middle_name" style="border:solid 1px">
+            <input type="text" class="form-control" name="middle_name" value="{{ Auth::user()->middle_name }}"  style="border:solid 1px">
             <label class="d-flex justify-content-center align-items-center font-weight-bold">Middle</label>
             </div>
         </div>
@@ -589,7 +589,7 @@
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
-        <strong><h4 style="color: blue; margin: 0;"> 8. Name of Course/Qualification <input type="text" name="qualification" value="{{ $courses->title }}" style="width: 500px;border:none;background-color:transparent"></h4></strong>
+        <strong><h4 style="color: blue; margin: 0;"> 8. Name of Course/Qualification <input type="text" name="qualification" value="{{ $courses->title }}" readonly style="width: 500px;border:none;background-color:transparent"></h4></strong>
     </div>
 
     <div class="col-12 p-2" style="border: solid 1px black; padding: 1px;background-color:#dddddd">
@@ -635,7 +635,7 @@
                 <center><div id="sig" style="height:100px;width:380px;"></div></center>
                 <br>
           
-                <textarea id="signature" name="signed" style="display: none"></textarea>
+                <textarea id="signature" name="signed" style="display: none" required></textarea>
                 <label style="font-size: large;">APPLICANT’S SIGNATURE OVER PRINTED NAME</label>
                 <td>
                     <center>

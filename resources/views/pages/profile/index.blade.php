@@ -259,7 +259,7 @@ function change_status(id,status)
 {
     $.ajax({
         type: "POST",
-        url:appUrl + 'guest/status',
+        url: '{{ route("guest.status") }}',
         headers: {
             'X-CSRF-TOKEN': csrfToken
         },
@@ -288,7 +288,7 @@ function convert_data(id)
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + 'guest/convert', // Ensure 'appUrl' is defined and valid
+                        url: '{{ route("guest.convert") }}',
                         headers: {
                             'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
                         },

@@ -54,6 +54,11 @@
                                             <i class="feather icon-printer"></i> 
                                             print
                                         </a>
+                                        |
+                                        <a class="delete-action text-danger" href="javascript:void(0)" data-id="{{ $student->id }}" title="Profile">
+                                            <i class="feather icon-trash"></i> 
+                                            delete
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -92,7 +97,6 @@
 
         $('.delete-action').on('click', function() {
             var id = $(this).data('id');
-
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -106,7 +110,7 @@
                 if (result.isConfirmed) {
                     $.ajax({
                         type: "POST",
-                        url: appUrl + 'student/delete', // Ensure 'appUrl' is defined and valid
+                        url: '{{ route("student.delete") }}',
                         headers: {
                             'X-CSRF-TOKEN': csrfToken // Ensure 'csrfToken' is defined and valid
                         },
@@ -149,4 +153,6 @@
     {   
         var win = window.open(appUrl + "/print/pdfrequest/" + id, '_blank');
     }
+
+ 
 </script>

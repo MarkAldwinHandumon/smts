@@ -68,13 +68,13 @@
                                 <div class="form-group">
                                     <x-text-input id="email" class="form-control" type="email" name="email"
                                         :value="old('email')" required autocomplete="username" placeholder="Email Address" />
-                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('email')" class="mt-2" style="color:red"/>
                                 </div>
 
                                 <div class="form-group">
                                     <x-text-input id="password" class="form-control" type="password" name="password"
                                         required autocomplete="new-password" placeholder="Password" />
-                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('password')" class="mt-2" style="color:red"/>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary btn-block mb-4">
